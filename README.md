@@ -69,6 +69,8 @@ This project includes a GitHub Pages site copy in the `docs/` folder. To host th
 
 The app files are copied into `docs/` so GitHub Pages can serve them directly.
 
+url for the webapp is https://avaisfinishingkinematics-max.github.io/KinematicsProject2/
+
 ## Notes
 
 - `App/` contains the original interactive web app.
