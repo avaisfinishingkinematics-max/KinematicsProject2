@@ -1,0 +1,171 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\title{Derivation of the My PRB Model for a Compliant Side-Crank Mechanism}
+\author{Advanced Kinematics and Mechanics Project 2}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This document presents the derivation of the \textbf{My PRB} (Pseudo-Rigid-Body) model used for the compliant side-crank mechanism in this project. The model replaces the flexible coupler by a pseudo-rigid-body path and an equivalent torsional spring to predict slider displacement and input torque.
+
+\section{Mechanism and PRB Approximation}
+
+The compliant mechanism includes:
+
+\begin{itemize}
+  \item a rigid crank of length $r_1$, rotated by an input angle $\phi_1$,
+  \item a flexible coupler of undeformed length $L_c$, and
+  \item a grounded slider displaced by the coupler tip.
+\end{itemize}
+
+The pseudo-rigid-body approximation treats the deflected flexible coupler as a rigid link whose tip follows a parametric curve defined by the pseudo-rigid-body angle $\Theta$.
+
+\section{Parametric Coupler Path}
+
+The coupler path is expressed using the characteristic radius factor $\gamma$ and the pseudo-rigid-body angle $\Theta$:
+
+\begin{align}
+    x_c(\Theta) &= L_c \left[1 - \gamma\left(1 - \cos\Theta\right)\right], \\
+    y_c(\Theta) &= \gamma L_c \sin\Theta.
+\end{align}
+
+This parametric form approximates the large-deflection geometry of the flexible beam. The coefficient $\gamma$ is chosen to match the fixed-pinned beam deflection path for the coupler and is treated as a fitted characteristic radius factor.
+
+For the fixed-pinned beam PRB case with vertical force angle $\phi = 90^\circ$ (or $n = 0$), the PRB coefficients are:
+
+\begin{align}
+    \gamma &= 0.8517, \\
+    c_{\theta} &= 1.2385, \\
+    K_{\Theta} &= 2.67617.
+\end{align}
+
+The associated PRB kinematic relations are:
+
+\begin{align}
+    \theta_o &= c_{\theta} \Theta, \\
+    a(\Theta) &= L_c \left[1 - \gamma\left(1 - \cos\Theta\right)\right], \\
+    b(\Theta) &= \gamma L_c \sin\Theta.
+\end{align}
+
+The horizontal coordinate $a$ and vertical coordinate $b$ describe the PRB tip path of the equivalent pseudo-rigid link.
+
+\begin{table}[h!]
+\centering
+\caption{Fixed-pinned beam PRB coefficients for $\phi = 90^\circ$ ($n = 0$).}
+\begin{tabular}{lcc}
+\hline
+Coefficient & Symbol & Value \\
+\hline
+Characteristic radius factor & $\gamma$ & $0.8517$ \\
+Pseudo-rigid angle coefficient & $c_{\theta}$ & $1.2385$ \\
+Fixed-pinned torsional stiffness coefficient & $K_{\Theta}$ & $2.67617$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Kinematic Closure and Slider Displacement}
+
+For a given crank angle $\phi_1$, the coupler tip height must satisfy the grounded slider condition. The vertical coordinate of the coupler tip is:
+
+\begin{equation}
+    y_{tip}(\Theta, \phi_1) = \text{offset} + r_1 \sin \phi_1 + y_c(\Theta).
+\end{equation}
+
+The PRB model enforces the slider contact condition by solving
+
+\begin{equation}
+    y_{tip}(\Theta, \phi_1) = 0.
+    \label{eq:closure}
+\end{equation}
+
+Equation~\eqref{eq:closure} is nonlinear in $\Theta$ and is solved numerically for each crank angle $\phi_1$.
+
+Once the pseudo-rigid-body angle $\Theta(\phi_1)$ is found, the horizontal slider position is:
+
+\begin{equation}
+    x_{slider}(\phi_1) = r_1 \cos \phi_1 + x_c\bigl(\Theta(\phi_1)\bigr).
+\end{equation}
+
+The model uses a common reference by shifting the slider position such that the displacement starts at zero:
+
+\begin{equation}
+    \Delta x_{slider}(\phi_1) = x_{slider}(\phi_1) - x_{slider}(\phi_{1,0}).
+\end{equation}
+
+\section{Equivalent Spring Stiffness and Torque}
+
+The pseudo-rigid-body torsional spring stiffness is defined as:
+
+\begin{equation}
+    K_{\theta} = \gamma \, 2.67617 \, \frac{EI}{L_c},
+    \label{eq:Kt}
+\end{equation}
+
+where $EI$ is the flexural rigidity of the coupler beam. The factor $2.67617$ is the equivalent fixed-pinned torsional stiffness coefficient used for this PRB formulation.
+
+The internal moment in the PRB spring is assumed proportional to $\Theta$, so the input torque is obtained from the pseudo-rigid-body virtual work relation:
+
+\begin{equation}
+    T(\phi_1) = -K_{\theta} \; \Theta(\phi_1) \; \frac{d\Theta}{d\phi_1}.
+    \label{eq:torque}
+\end{equation}
+
+This expression captures the torque required to rotate the coupler path as the crank angle changes.
+
+\section{Numerical Solution Procedure}
+
+The computation proceeds as follows:
+
+\begin{enumerate}
+  \item Choose mechanism parameters $r_1$, $L_c$, \text{offset}, $EI$, and $\gamma$.
+  \item Define a crank angle sweep $\phi_1 \in [\phi_{1,\min}, \phi_{1,\max}]$.
+  \item For each $\phi_1$, find the pseudo-rigid-body angle $\Theta$ satisfying Eq.~\eqref{eq:closure}.
+  \item Compute the corresponding slider displacement $\Delta x_{slider}(\phi_1)$.
+  \item Compute the input torque $T(\phi_1)$ using Eq.~\eqref{eq:torque}.
+\end{enumerate}
+
+The root-finding search uses a dense grid of candidate $\Theta$ values and selects the solution that evolves continuously with $\phi_1$.
+
+\section{Model Parameters}
+
+For the current My PRB implementation, the recommended PRB coefficients are:
+
+\begin{align}
+    \gamma &= 0.8517, \\
+    c_{\theta} &= 1.2385, \\
+    K_{\Theta} &= 2.67617,
+\end{align}
+
+and the PRB spring stiffness is:
+
+\begin{equation}
+    K_{\theta} = \gamma \, K_{\Theta} \, \frac{EI}{L_c} = 0.8517 \times 2.67617 \, \frac{EI}{L_c}.
+\end{equation}
+
+The coefficient $c_{\theta}$ scales the pseudo-rigid-body rotation angle to the beam tip angle, while $\gamma$ sets the characteristic radius of the pseudo-rigid-body path.
+
+\section{Assumptions and Limitations}
+
+The My PRB model assumes:
+
+\begin{itemize}
+  \item linear elastic, uniform beam material,
+  \item quasi-static loading,
+  \item planar motion with negligible shear deformation,
+  \item the flexible coupler can be approximated by the chosen parametric PRB curve.
+\end{itemize}
+
+Accuracy depends on the beam slenderness and the suitability of the fixed-pinned PRB coefficients. Comparison with FEA verifies the model across the intended crank angle range.
+
+\section{Conclusion}
+
+The My PRB formulation provides a reduced-order analytical model for the compliant side-crank mechanism by combining a pseudo-rigid-body geometry approximation with an equivalent torsional spring. It produces slider displacement and torque predictions suitable for rapid comparison against FEA and alternative PRB formulations.
+
+\end{document}

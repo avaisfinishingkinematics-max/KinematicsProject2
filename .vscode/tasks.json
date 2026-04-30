@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Compile LaTeX to PDF",
+			"type": "shell",
+			"command": "pdflatex",
+			"args": [
+				"-interaction=batchmode",
+				"PRB Model/prb_derivation.tex"
+			]
+		},
+		{
+			"label": "Compile Test LaTeX",
+			"type": "shell",
+			"command": "pdflatex",
+			"args": [
+				"-interaction=batchmode",
+				"PRB Model/test.tex"
+			]
+		}
+	]
+}

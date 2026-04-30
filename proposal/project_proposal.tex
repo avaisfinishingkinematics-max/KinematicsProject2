@@ -1,0 +1,37 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,margin=0.7in]{geometry}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+\setlist[itemize]{left=0pt,label=--,topsep=0pt,parsep=0pt,itemsep=0pt}
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\bfseries\raggedright}{}{0pt}{}
+\setlength{\parskip}{0.5ex}
+\setlength{\parindent}{0pt}
+\title{Project Proposal}
+\author{Ava Merrifield}
+\date{April 2026}
+\begin{document}
+\maketitle
+\section*{Scope}
+Replicate Howell and Midha's pseudo-rigid-body deflection approximation for end-loaded, large-deflection cantilever beams in compliant mechanisms. The work will use compliant mechanism concepts and PRB modeling to obtain an analytic path approximation for the beam tip and validate it with nonlinear FEA.
+\section*{Approach}
+\textbf{Analytical model.} Derive the large-deflection beam response for an end-loaded cantilever, using the pseudo-rigid-body parameterization and characteristic pivot location from the paper.
+\textbf{Parametric replication.} Implement the paper's parametric equations for tip coordinates versus end rotation, optimize the PRB parameter ($\gamma$), and identify the parameterization limit ($\theta_{\mathrm{omax}}$).
+\textbf{FEA validation.} Build a 2D large-deformation FEA model of the same compliant beam and load it with the same end-force ratios (
+$n=0$ and selected combined-load cases).
+\section*{Validation Strategy}
+Compare analytical and FEA results using:
+\begin{itemize}
+  \item End-tip displacement and path coordinates.
+  \item Beam end angular deflection and PRB angle relationship.
+  \item Relative error in tip deflection versus the paper's target accuracy (~0.5\%).
+\end{itemize}
+Use FEA as the validation baseline to quantify the analytical model's discrepancy and identify sources of difference from compliant mechanism assumptions.
+\section*{Example Case}
+Use a representative compliant beam with length $L$, flexural rigidity $EI$, and a tip load ratio $n$. Benchmark the analysis against the paper's $n=0$ case and at least one combined end-load case to demonstrate PRB performance across typical compliant mechanism behaviors.
+\vfill
+{\footnotesize Based on: L. L. Howell and A. Midha, "Parametric Deflection Approximations for End-Loaded, Large-Deflection Beams in Compliant Mechanisms," ASME J. Mech. Des., vol. 117, no. 1, 1995.}
+\newline
+{\footnotesize This proposal was prepared with assistance from an AI language model.}
+\end{document}

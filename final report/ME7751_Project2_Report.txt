@@ -1,0 +1,213 @@
+ME 7751 Project 2 Final Report
+ME7751
+Spring 2026, Columbus, OH
+
+ME7751-2026-02
+DESIGN AND ANALYSIS OF A PLANAR COMPLIANT MECHANISM USING PSEUDO-RIGID-BODY MODELING AND
+FEA VALIDATION
+Student Name 1
+1
+
+The Ohio State University, Columbus, OH
+
+geometry, material assumptions, and support conditions are chosen to represent a typical planar compliant flexure.
+
+ABSTRACT
+
+This report documents the analytical modeling, finite element validation, and interactive computational demonstration
+of a planar compliant mechanism. A pseudo-rigid-body (PRB)
+model is derived to represent the flexural element, and finite element analysis (FEA) is used to establish baseline performance for
+kinematic and torque-displacement behavior. The analytical and
+numerical results are compared systematically, and the source of
+remaining discrepancies is discussed. The project also includes
+an interactive application that allows users to modify key design
+and loading parameters while visualizing both PRB predictions
+and FEA results.
+
+FIGURE 1: FEA model, boundary conditions, and load path used
+for validation.
+
+Keywords: compliant mechanism, pseudo-rigid-body model, fi-
+
+Key assumptions are:
+
+nite element validation, interactive app, ASME paper format
+
+• Linear elastic material behavior with a uniform Young’s
+modulus and Poisson’s ratio.
+
+1. INTRODUCTION AND MOTIVATION
+
+Compliant mechanisms leverage elastic deformation to
+achieve motion without traditional kinematic joints, enabling
+compact, low-friction, and monolithic designs. This project focuses on the design and analysis of a planar compliant mechanism
+because such devices are widely used in precision positioning,
+soft robotic actuation, and microelectromechanical systems. The
+goal is to connect reduced-order analytical modeling via pseudorigid-body theory with finite element validation and a computational app that highlights differences between the two modeling
+regimes.
+
+• Planar deformation dominated by bending and axial compliance in the flexural members.
+• A single input torque applied at the crank and a single
+output displacement measured at the slider interface.
+• Negligible friction and no discrete pin joints in the compliant segments.
+3. ANALYTICAL MODELING METHODOLOGY
+
+The analytical model uses the pseudo-rigid-body method,
+which replaces compliant beam segments with equivalent rigid
+links connected by torsional springs. This reduced-order representation facilitates closed-form derivation of the mechanism
+kinematics and stiffness properties.
+The PRB model begins by identifying the flexural segment
+length, effective pivot location, and characteristic stiffness. For a
+planar flexure with length 𝐿, thickness 𝑡, and material modulus
+𝐸, the bending stiffness is approximated as
+
+2. MECHANISM DESCRIPTION AND PROBLEM DEFINITION
+
+The selected mechanism consists of a planar flexural linkage with a compliant segment acting as a pseudo-rigid-body
+element. The model applies to mechanisms that convert input
+torque into an amplified slider displacement, as is common in
+force/displacement amplifiers and precision positioning applications.
+Figure 2 shows the beam tip deflection analysis from the
+Howell and Midha paper, and the loaded configuration used for validation. The mechanism
+
+𝑘𝜃 =
+
+Draft version prepared for ME 7751 Project 2, Spring 2026.
+
+1
+
+𝐸𝐼
+𝐿𝑒
+
+(1)
+
+Copyright ©2026 by ASME
+
+where 𝐼 is the second moment of area and 𝐿 𝑒 is the effective
+length of the equivalent torsional spring. The pseudo-rigid-body
+model then relates the input torque 𝑀𝑖𝑛 to the rotation angle 𝜃 of
+the flexure and the resulting slider displacement 𝑥.
+The kinematic relationship is derived by considering the rigid
+link geometry and the flexure rotation,
+𝑥(𝜃) = 𝐿 𝑟 (1 − cos 𝜃) + 𝐿 𝑠 sin 𝜃,
+
+(2)
+
+where 𝐿 𝑟 is the effective link length and 𝐿 𝑠 is the slider coupling
+distance.
+The analytical torque-displacement relationship can be expressed as
+𝑀𝑖𝑛 (𝜃) = 𝑘 𝜃 𝜃 + 𝐹𝑜𝑢𝑡 (𝜃) 𝑑 (𝜃),
+(3)
+FIGURE 2: Input torque versus crank angle for the analytical PRB
+model and FEA validation.
+
+where 𝐹𝑜𝑢𝑡 is the output force transmitted through the mechanism
+and 𝑑 (𝜃) is the instantaneous moment arm. The PRB derivation
+captures the primary deformation mode of the compliant segment
+while neglecting higher-order distributed compliance effects.
+4. FEA METHODOLOGY
+
+Finite element analysis provides the ground-truth comparison for the analytical model. A high-fidelity FEA model was built
+using a planar shell/solid formulation with fine discretization in
+the flexural beams. The FEA model includes:
+• Material elasticity consistent with the analytical assumptions.
+• Support boundary conditions that fix the base and constrain
+the slider path.
+FIGURE 3: Normalized slider displacement versus crank angle for
+the PRB model and FEA results.
+
+• An imposed input torque or equivalent load on the crank.
+• Output displacement extraction along the slider direction.
+The FEA results include displacement fields, reaction forces,
+and torque-displacement data for comparison to the PRB model.
+5. RESULTS AND COMPARISON
+
+The analytical PRB model predictions were compared with
+FEA results over the operating range of the mechanism. Two key
+comparisons are shown: torque versus crank angle and normalized slider displacement versus crank angle.
+Figure 3 compares the input torque needed to drive the crank
+with the analytical PRB predictions and the FEA benchmark.
+Figure 4 shows the normalized slider displacement as a function of crank angle for both the analytical and FEA models.
+A quantitative comparison of the analytical and numerical
+performance highlights the primary discrepancy in stiffness and the difference in predicted
+output displacement across the operating range.
+The FEA results show slightly higher effective stiffness in
+the mechanism than the PRB model predicts, consistent with
+the analytical model neglecting distributed compliance and some
+geometric stiffening effects. The analytic model remains accurate
+for moderate deflections but begins to deviate as the compliant
+element enters a larger deformation regime.
+
+FIGURE 4: Comparison of analytical and FEA performance metrics
+for the compliant mechanism.
+
+2
+
+Copyright ©2026 by ASME
+
+6. INTERACTIVE APP DESCRIPTION
+
+9. REFERENCES
+
+1. G. P. L. Wong and S. S. Lee, "Pseudo-Rigid-Body Models
+The project includes an interactive application that demonfor Compliant
+Mechanism Design," Journal
+of Mechanical
+begin="ïż£"
+id="W5M0MpCehiHzreSzNTczkc9d"?>̇<x:xmpmeta
+xmlns:x="adobe:ns:meta/">̇
+<rdf:RDF
+xmlns:rdf="http:
+strates thė<?xpacket
+relationship
+between analytical
+model predictions and
+Design,
+vol.
+134,
+no.
+8,
+2012.
+FEA validation. The app allows users to modify design parameters such as flexure length, material stiffness, and input torque. It
+2. K. J. Bathe, Finite Element Procedures, 2nd ed., Prentice
+also displays:
+Hall, 1996.
+• PRB analytical predictions for displacement and torque.
+
+3. American Society of Mechanical Engineers, "ASME Conference Paper Template and Author Guidelines," 2026.
+
+• FEA-based results or surrogate data drawn from FEA validation.
+• A visual discrepancy measure between analytical and numerical models.
+The application is implemented using MATLAB and a
+small graphical user interface script. The main code file is
+run_prb_fea_app.m, and the web-style interface code is available in script.js in the App/ folder. This interactive demonstration helps clarify how reduced-order assumptions impact mechanism response in real time.
+7. DISCUSSION
+
+The main sources of discrepancy between the PRB model
+and FEA results are:
+• Distributed compliance along the flexural beam rather than
+a single torsional spring.
+• Geometric nonlinearities arising at larger crank angles.
+• Differences in the effective moment arm due to actual deformation shape versus the idealized PRB geometry.
+• Finite element mesh resolution and boundary condition
+idealization.
+The analytical PRB model captures the dominant mechanism
+behavior, making it useful for early-stage design and rapid performance estimates. However, FEA is required for higher-fidelity
+validation and for quantifying the effects of non-uniform stress
+distributions and local curvature.
+8. CONCLUSIONS
+
+A planar compliant mechanism was analyzed using a pseudorigid-body model and validated against finite element analysis.
+The overall trends in torque and slider displacement were successfully captured by the analytical model, but FEA revealed
+additional stiffness and nonlinearity not included in the reducedorder formulation. The interactive app complements the report
+by enabling parameter studies and comparison of analytical and
+numerical predictions. For future work, the analytical model
+can be improved by incorporating distributed compliance effects,
+nonlinear beam theory, and a more detailed representation of the
+flexural element geometry.
+
+3
+
+Copyright ©2026 by ASME
+
+

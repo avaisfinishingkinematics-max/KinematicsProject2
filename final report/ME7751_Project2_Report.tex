@@ -1,0 +1,374 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[colorlinks,upint,subscriptcorrection,varvw,hyphenate]{asmeconf}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[section]{placeins}
+\usepackage{hyperref}
+\hypersetup{
+    pdfauthor={ME 7751 Project Team},
+    pdftitle={Design and Analysis of a Planar Compliant Mechanism Using Pseudo-Rigid-Body Modeling and FEA Validation},
+    pdfkeywords={compliant mechanism, pseudo-rigid-body model, finite element analysis, ASME conference paper, mechanism design},
+    pdfsubject = {ME 7751 Project 2 Final Report},
+}
+
+\begin{document}
+
+\ConfName{ME 7751 Project 2 Final Report}
+\ConfAcronym{ME7751}
+\ConfDate{Spring 2026}
+\ConfCity{Columbus, OH}
+\PaperNo{ME7751-2026-02}
+
+\title{Design and Analysis of a Planar Compliant Mechanism Using Pseudo-Rigid-Body Modeling and FEA Validation}
+
+\SetAuthors{Ava Merrifield\affil{1}}
+\SetAffiliation{1}{The Ohio State University, Columbus, OH}
+\maketitle
+
+\versionfootnote{Draft version prepared for ME 7751 Project 2, Spring 2026.}
+\keywords{compliant mechanism, pseudo-rigid-body model, finite element validation, interactive app, ASME paper format}
+
+\begin{abstract}
+This report documents the analytical modeling, finite element validation, and interactive computational demonstration of a planar compliant mechanism. A pseudo-rigid-body (PRB) model is derived to represent the flexural element, and finite element analysis (FEA) is used to establish baseline performance for kinematic and torque-displacement behavior. The analytical and numerical results are compared systematically, and the source of remaining discrepancies is discussed. The project also includes an interactive application that allows users to modify key design and loading parameters while visualizing both PRB predictions and FEA results.
+\end{abstract}
+
+\section{INTRODUCTION AND MOTIVATION}
+Compliant mechanisms leverage elastic deformation to achieve motion without traditional kinematic joints, enabling compact, low-friction, and monolithic designs. This project focuses on the design and analysis of a planar compliant mechanism because such devices are widely used in precision positioning, soft robotic actuation, and microelectromechanical systems. The goal is to connect reduced-order analytical modeling via pseudo-rigid-body theory with finite element validation and a computational app that highlights differences between the two modeling regimes.
+
+\section{MECHANISM DESCRIPTION AND PROBLEM DEFINITION}
+The selected mechanism consists of a planar flexural linkage with a compliant segment acting as a pseudo-rigid-body element. Figure~\ref{fig:mechanism} shows the compliant mechanism schematic adapted from Howell and Midha \cite{howell1995parametric}. The model applies to mechanisms that convert input torque into an amplified slider displacement, as is common in force/displacement amplifiers and precision positioning applications.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.92\linewidth]{"Figures to Include/FEA model with boundary conditions.png"}
+    \caption{Compliant mechanism schematic adapted from Howell and Midha \cite{howell1995parametric}.}
+    \label{fig:mechanism}
+\end{figure}
+\FloatBarrier
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.92\linewidth]{"Figures to Include/figure 15.png"}
+    \caption{Beam tip deflection analysis from Howell and Midha \cite{howell1995parametric}.}
+    \label{fig:howell_deflection}
+\end{figure}
+\FloatBarrier
+
+The finite element model boundary conditions and the loaded configuration used for validation are described. The mechanism geometry, material assumptions, and support conditions are chosen to represent a typical planar compliant flexure.
+
+Key assumptions are:
+\begin{itemize}
+    \item Linear elastic material behavior with a uniform Young's modulus and Poisson's ratio.
+    \item Planar deformation dominated by bending and axial compliance in the flexural members.
+    \item A single input torque applied at the crank and a single output displacement measured at the slider interface.
+    \item Negligible friction and no discrete pin joints in the compliant segments.
+\end{itemize}
+
+\section{ANALYTICAL MODELING METHODOLOGY}
+
+\subsection{Howell-Midha Parametric Deflection Approximation}
+The analytical model employs the \textit{parametric deflection approximation} developed by Howell and Midha \cite{howell1995parametric}, which provides accurate closed-form solutions for large-deflection compliant beams. This method replaces the compliant flexural segment with an equivalent pseudo-rigid-body mechanism consisting of rigid links and torsional springs. The derivation presented in this subsection follows the approach established by Howell and Midha.
+
+\subsection{Large-Deflection Beam Theory}
+The Bernoulli-Euler beam equation for large deflections is
+\begin{equation}
+    M = EI \frac{d\theta}{ds} = EI \frac{d^2y/dx^2}{\left[1 + (dy/dx)^2\right]^{3/2}},
+\end{equation}
+where $M$ is the bending moment, $\theta$ is the angular deflection, $s$ is arc length, and $y$ is transverse deflection. This nonlinear equation replaces the small-deflection approximation and accurately captures large-deflection behavior.
+
+\subsection{Parametric Deflection Approximation}
+The deflection path is parameterized using the pseudo-rigid-body angle $\Theta$. The beam tip coordinates in the beam-fixed frame are
+\begin{equation}
+    x(\Theta) = L\left[1 - \frac{2K_b}{\pi}\sin\left(\frac{\Theta}{2}\right)\right]\cos(\Theta),
+\end{equation}
+\begin{equation}
+    y(\Theta) = L\left[1 - \frac{2K_b}{\pi}\sin\left(\frac{\Theta}{2}\right)\right]\sin(\Theta),
+\end{equation}
+where $L$ is the beam length and $K_b \approx 0.85$ is the characteristic beam parameter. The characteristic length ratio is
+\begin{equation}
+    \lambda = \frac{2K_b}{\pi} \approx 0.541,
+\end{equation}
+which defines the effective rigid link length as $L_{prb} = L\sin(\Theta/2)$.
+
+\subsection{PRB Model Construction}
+The flexible coupler is replaced by two rigid links connected by a torsional spring. The equivalent link lengths are
+\begin{equation}
+    L_1 = L_2 = L\sin\left(\frac{\Theta}{2}\right).
+\end{equation}
+The torsional spring constant is
+\begin{equation}
+    K_\theta = K_b' \frac{EI}{L},
+\end{equation}
+where $K_b' = 12.7$ is the spring stiffness coefficient for the parametric approximation. The lateral stiffness is
+\begin{equation}
+    K_y = \frac{3EI}{L^3}.
+\end{equation}
+
+\subsection{Mechanism Kinematics}
+For the side-crank configuration, the mechanism closure constraints relate the crank angle $\phi_1$, the pseudo-rigid-body angle $\Theta$, and the follower angle $\phi_3$. The kinematic constraint that the slider remains at a fixed vertical position (height $h$ above the crank pivot) is
+\begin{equation}
+    h + r_1\sin\phi_1 + L\left[1 - \lambda\sin\left(\frac{\Theta}{2}\right)\right]\sin(\Theta) = 0,
+\end{equation}
+which implicitly defines $\Theta(\phi_1)$. The horizontal slider displacement is
+\begin{equation}
+    x_{slider}(\phi_1) = r_1\cos\phi_1 + L\left[1 - \lambda\sin\left(\frac{\Theta}{2}\right)\right]\cos(\Theta),
+\end{equation}
+where $r_1$ is the crank length.
+
+\subsection{Torque Calculation}
+The input torque required at the crank is computed using energy methods:
+\begin{equation}
+    M_{in}(\phi_1) = K_\theta \Theta(\phi_1) \frac{d\Theta}{d\phi_1},
+\end{equation}
+which naturally captures the nonlinear stiffness and varying moment arm that arise from large-deflection behavior. The parametric approximation is valid up to deflection angles of approximately $120°$, with accuracy better than $\pm 0.5\%$ compared to exact elliptic integral solutions.
+
+\subsection{Howell-Midha vs. My PRB}
+Both the Howell-Midha and My PRB approaches are pseudo-rigid-body approximations for fixed-pinned beams, but they differ in the way the beam tip path and equivalent stiffness are represented. Howell and Midha use the classical PRB beam path with a characteristic length ratio $\lambda = 2K_b/\pi \approx 0.541$ and the standard torsional spring coefficient $K_b' = 12.7$. This produces a PRB path based on the effective rigid link length $L\sin(\Theta/2)$ and the classical fixed-pinned beam stiffness formulas.
+
+By contrast, the My PRB model adopts a direct parametric tip path with a characteristic radius factor $\gamma = 0.8517$, and it uses an equivalent fixed-pinned torsional stiffness coefficient $K_{\Theta} = 2.67617$ for the chosen path shape. The My PRB formulation therefore differs from Howell-Midha in two main ways:
+\begin{itemize}
+    \item Path shape: Howell-Midha uses the classical PRB parametric form with $\sin(\Theta/2)$, while My PRB uses the direct tip coordinates $x_c(\Theta)$ and $y_c(\Theta)$ with a fitted radius factor $\gamma$.
+    \item Spring definition: Howell-Midha uses the standard PRB spring coefficient $K_b' = 12.7$ for the equivalent torsional stiffness, while My PRB uses $K_{\Theta} = 2.67617$ scaled by $\gamma$ to represent the same fixed-pinned beam case under the selected path approximation.
+\end{itemize}
+
+These differences mean the two analytical models should be similar in concept, but not identical in numerical behavior. Both are reduced-order PRB representations of a fixed-pinned beam, yet the My PRB model places more emphasis on fitting the tip path with a radius factor and a specific equivalent stiffness coefficient.
+
+\section{MY PRB MODEL DERIVATION}
+In addition to the Howell-Midha approach, an alternative pseudo-rigid-body model has been developed specifically for this compliant side-crank mechanism. This ``My PRB'' model provides a refined analytical framework for predicting slider displacement and input torque. The derivation of this model is presented in this section.
+
+\subsection{Parametric Coupler Path}
+The coupler path is expressed using the characteristic radius factor $\gamma$ and the pseudo-rigid-body angle $\Theta$:
+
+\begin{align}
+    x_c(\Theta) &= L_c \left[1 - \gamma\left(1 - \cos\Theta\right)\right], \\
+    y_c(\Theta) &= \gamma L_c \sin\Theta.
+\end{align}
+
+This parametric form approximates the large-deflection geometry of the flexible beam. The coefficient $\gamma$ is chosen to match the fixed-pinned beam deflection path for the coupler and is treated as a fitted characteristic radius factor.
+
+For the fixed-pinned beam PRB case with vertical force angle $\phi = 90^\circ$ (or $n = 0$), the PRB coefficients are:
+
+\begin{align}
+    \gamma &= 0.8517, \\
+    c_{\theta} &= 1.2385, \\
+    K_{\Theta} &= 2.67617.
+\end{align}
+
+These recommended coefficients are selected from the fixed-pinned beam PRB literature for the vertical-load case and from the characteristic PRB factors used to approximate the beam tip path. The coefficient $\gamma$ is the characteristic radius factor chosen to produce a tip path that closely matches the fixed-pinned designation, $c_{\theta}$ scales the pseudo-rigid-body angle to the beam tip rotation, and $K_{\Theta}$ is the equivalent fixed-pinned torsional stiffness coefficient for the selected path approximation. In other words, the My PRB implementation adopts the same underlying PRB design philosophy as Howell and Midha, but it uses a different parametric representation of the beam tip path and a tailored stiffness factor.
+
+The associated PRB kinematic relations are:
+
+\begin{align}
+    \theta_o &= c_{\theta} \Theta, \\
+    a(\Theta) &= L_c \left[1 - \gamma\left(1 - \cos\Theta\right)\right], \\
+    b(\Theta) &= \gamma L_c \sin\Theta.
+\end{align}
+
+The horizontal coordinate $a$ and vertical coordinate $b$ describe the PRB tip path of the equivalent pseudo-rigid link.
+
+\begin{table}[h!]
+\centering
+\caption{My PRB model coefficients for fixed-pinned beam with $\phi = 90^\circ$ ($n = 0$).}
+\begin{tabular}{lcc}
+\hline
+Coefficient & Symbol & Value \\
+\hline
+Characteristic radius factor & $\gamma$ & $0.8517$ \\
+Pseudo-rigid angle coefficient & $c_{\theta}$ & $1.2385$ \\
+Fixed-pinned torsional stiffness coefficient & $K_{\Theta}$ & $2.67617$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Kinematic Closure and Slider Displacement}
+For a given crank angle $\phi_1$, the coupler tip height must satisfy the grounded slider condition. The vertical coordinate of the coupler tip is:
+
+\begin{equation}
+    y_{tip}(\Theta, \phi_1) = \text{offset} + r_1 \sin \phi_1 + y_c(\Theta).
+\end{equation}
+
+The PRB model enforces the slider contact condition by solving
+
+\begin{equation}
+    y_{tip}(\Theta, \phi_1) = 0.
+    \label{eq:closure}
+\end{equation}
+
+Equation~\eqref{eq:closure} is nonlinear in $\Theta$ and is solved numerically for each crank angle $\phi_1$.
+
+Once the pseudo-rigid-body angle $\Theta(\phi_1)$ is found, the horizontal slider position is:
+
+\begin{equation}
+    x_{slider}(\phi_1) = r_1 \cos \phi_1 + x_c\bigl(\Theta(\phi_1)\bigr).
+\end{equation}
+
+The model uses a common reference by shifting the slider position such that the displacement starts at zero:
+
+\begin{equation}
+    \Delta x_{slider}(\phi_1) = x_{slider}(\phi_1) - x_{slider}(\phi_{1,0}).
+\end{equation}
+
+\subsection{Equivalent Spring Stiffness and Torque}
+
+The pseudo-rigid-body torsional spring stiffness is defined as:
+
+\begin{equation}
+    K_{\theta} = \gamma \, 2.67617 \, \frac{EI}{L_c},
+    \label{eq:Kt}
+\end{equation}
+
+where $EI$ is the flexural rigidity of the coupler beam. The factor $2.67617$ is the equivalent fixed-pinned torsional stiffness coefficient used for this PRB formulation.
+
+The internal moment in the PRB spring is assumed proportional to $\Theta$, so the input torque is obtained from the pseudo-rigid-body virtual work relation:
+
+\begin{equation}
+    T(\phi_1) = -K_{\theta} \; \Theta(\phi_1) \; \frac{d\Theta}{d\phi_1}.
+    \label{eq:torque}
+\end{equation}
+
+This expression captures the torque required to rotate the coupler path as the crank angle changes.
+
+\subsection{Numerical Solution Procedure}
+
+The computation proceeds as follows:
+
+\begin{enumerate}
+  \item Choose mechanism parameters $r_1$, $L_c$, \text{offset}, $EI$, and $\gamma$.
+  \item Define a crank angle sweep $\phi_1 \in [\phi_{1,\min}, \phi_{1,\max}]$.
+  \item For each $\phi_1$, find the pseudo-rigid-body angle $\Theta$ satisfying Eq.~\eqref{eq:closure}.
+  \item Compute the corresponding slider displacement $\Delta x_{slider}(\phi_1)$.
+  \item Compute the input torque $T(\phi_1)$ using Eq.~\eqref{eq:torque}.
+\end{enumerate}
+
+The root-finding search uses a dense grid of candidate $\Theta$ values and selects the solution that evolves continuously with $\phi_1$.
+
+\subsection{Model Parameters}
+
+For the current My PRB implementation, the recommended PRB coefficients are:
+
+\begin{align}
+    \gamma &= 0.8517, \\
+    c_{\theta} &= 1.2385, \\
+    K_{\Theta} &= 2.67617,
+\end{align}
+
+and the PRB spring stiffness is:
+
+\begin{equation}
+    K_{\theta} = \gamma \, K_{\Theta} \, \frac{EI}{L_c} = 0.8517 \times 2.67617 \, \frac{EI}{L_c}.
+\end{equation}
+
+The coefficient $c_{\theta}$ scales the pseudo-rigid-body rotation angle to the beam tip angle, while $\gamma$ sets the characteristic radius of the pseudo-rigid-body path.
+
+\subsection{Assumptions and Limitations}
+
+The My PRB model assumes:
+
+\begin{itemize}
+  \item linear elastic, uniform beam material,
+  \item quasi-static loading,
+  \item planar motion with negligible shear deformation,
+  \item the flexible coupler can be approximated by the chosen parametric PRB curve.
+\end{itemize}
+
+Accuracy depends on the beam slenderness and the suitability of the fixed-pinned PRB coefficients. Comparison with FEA verifies the model across the intended crank angle range.
+
+\section{FEA METHODOLOGY}
+
+The finite element analysis model was developed in Abaqus following the pseudo-rigid-body framework for fixed-pinned beams with vertical forces applied. Figure~\ref{fig:fixed_pinned_beams} illustrates the fixed-pinned beam configuration upon which the FEA model is based.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.92\linewidth]{"Figures to Include/Fixed-Pinned Beams.png"}
+    \caption{Fixed-pinned beam PRB model with vertical force application, adapted from Su \cite{su2024compliant}.}
+    \label{fig:fixed_pinned_beams}
+\end{figure}
+\FloatBarrier
+
+The FEA model incorporates the key features of the PRB model for fixed-pinned beams: a torsional spring is applied at the characteristic pivot, which is the joint where the crank and the coupler connect. The coupler is modeled with a characteristic radius of $0.85L_c$, matching the PRB parametrization used in the analytical models. A high-fidelity FEA model was built using Abaqus with a planar shell/solid formulation and fine discretization in the flexural beams. The FEA model includes:
+\begin{itemize}
+    \item Material elasticity consistent with the analytical assumptions.
+    \item Support boundary conditions that fix the base and constrain the slider path.
+    \item A torsional spring at the characteristic pivot connecting the crank and coupler.
+    \item A coupler modeled with characteristic radius $0.85L_c$ to match the PRB path.
+    \item An imposed input torque or equivalent load on the crank.
+    \item Output displacement extraction along the slider direction.
+\end{itemize}
+
+The FEA results include displacement fields, reaction forces, and torque-displacement data for comparison to both the Howell-Midha PRB model and the My PRB model.
+
+\section{RESULTS AND COMPARISON}
+The results compare three model predictions: the My PRB model, the Howell-Midha PRB derivation, and the available Abaqus FEA output. Figures~\ref{fig:torque} and \ref{fig:displacement} show the torque and displacement responses from all three approaches, and the text below explains where the analytical models differ.
+
+Figure~\ref{fig:torque} presents the input torque response. The plotted curves show the torque predicted by the Howell-Midha PRB model and the torque predicted by the My PRB model. The available Abaqus FEA torque result is also shown when the numerical implementation produced a value, but this FEA torque trace is interpreted cautiously because the torque calculation was not fully verified in the current model.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.92\linewidth]{"Figures to Include/Input Torque Updated.png"}
+    \caption{Input torque versus crank angle for the My PRB model, the Howell-Midha PRB derivation, and the available Abaqus FEA torque result.}
+    \label{fig:torque}
+\end{figure}
+
+Figure~\ref{fig:displacement} shows the normalized slider displacement versus crank angle for the same three approaches. The FEA displacement response is the clearest numerical check, while the deformations predicted by the two analytical PRB models reflect different path and stiffness assumptions.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.92\linewidth]{"Figures to Include/Slider Displacement Updated.png"}
+    \caption{Normalized slider displacement versus crank angle for Abaqus FEA, the Howell-Midha PRB derivation, and the My PRB model.}
+    \label{fig:displacement}
+\end{figure}
+
+The Howell-Midha PRB model is based on the classical fixed-pinned beam parametric deflection approximation with characteristic length ratio $\lambda = 0.541$ and the standard PRB torsional stiffness coefficient $K_b' = 12.7$. It represents the coupler path using the effective rigid link length $L\sin(\Theta/2)$.
+
+The My PRB model is also a fixed-pinned beam PRB approximation, but it uses a different parametric representation of the tip path and a tailored stiffness coefficient. Specifically, My PRB uses a characteristic radius factor of $\gamma = 0.8517$, a pseudo-rigid-body angle multiplier $c_{\theta} = 1.2385$, and an equivalent stiffness coefficient $K_{\Theta} = 2.67617$. These coefficients are recommended for the current My PRB implementation because they are drawn from the fixed-pinned beam PRB case with vertical loading and from the characteristic PRB factors used to approximate the same beam geometry.
+
+The two analytical models therefore differ in the following ways:
+\begin{itemize}
+    \item The Howell-Midha model uses the classical PRB path based on $\sin(\Theta/2)$ and the standard PRB slope coefficient $K_b' = 12.7$.
+    \item The My PRB model uses a direct tip-curve representation with $\gamma = 0.8517$ and a fixed-pinned stiffness coefficient $K_{\Theta} = 2.67617$, which is scaled by $\gamma$ to match the selected path approximation.
+    \item The path shape difference changes the effective moment arm of the coupler tip and the slider closure relation, so the same crank angle produces slightly different $\Theta$ values and slider displacements in each model.
+    \item The spring stiffness difference changes the predicted torque response, even when both models use the same underlying beam length and material properties.
+\end{itemize}
+
+Because both models are reduced-order pseudo-rigid-body approximations, they are expected to agree qualitatively but not identically. The key source of disagreement is not the PRB idea itself, but the particular PRB path and stiffness coefficients chosen for each formulation. In this project, the My PRB model is tailored to the specific side-crank slider geometry, while the Howell-Midha model follows the classical fixed-pinned beam PRB derivation.
+
+The Abaqus FEA displacement result is useful as a numerical check of the selected PRB geometry, because it implements the same PRB-style concept with rigid members and a torsional spring at the characteristic pivot. The available Abaqus torque result is presented for reference, but its limited validation means the main torque comparison should remain between the two analytical PRB models.
+
+These comparisons show that My PRB and Howell-Midha are similar in principle, but they differ in their path approximation and in how the equivalent torsional stiffness is defined. This explains why the displacement curves can be close while the torque curves diverge, and why the My PRB coefficients are recommended for the current implementation despite being based on the same fixed-pinned beam family.
+
+\section{INTERACTIVE APP DESCRIPTION}
+The project includes an interactive application that demonstrates the relationship between analytical model predictions and FEA validation. The app allows users to modify design parameters such as flexure length, material stiffness, and input torque. It also displays:
+\begin{itemize}
+    \item PRB analytical predictions for displacement and torque.
+    \item FEA-based results or surrogate data drawn from FEA validation.
+    \item A visual discrepancy measure between analytical and numerical models.
+\end{itemize}
+
+The application is implemented using MATLAB and a small graphical user interface script. The main code file is \texttt{run\_prb\_fea\_app.m}, and the web-style interface code is available in \texttt{script.js} in the \texttt{App/} folder. This interactive demonstration helps clarify how reduced-order assumptions impact mechanism response in real time.
+
+\section{DISCUSSION}
+The main sources of discrepancy between the PRB model and FEA results are:
+\begin{itemize}
+    \item Distributed compliance along the flexural beam rather than a single torsional spring.
+    \item Geometric nonlinearities arising at larger crank angles.
+    \item Differences in the effective moment arm due to actual deformation shape versus the idealized PRB geometry.
+    \item Finite element mesh resolution and boundary condition idealization.
+\end{itemize}
+Because this mechanism is primarily a kinematic displacement amplifier, the comparison focuses on slider displacement and input torque as the most relevant performance metrics, rather than on stress contours or full structural detail. The FEA results therefore serve as a numerical baseline for those selected kinematic and load-transfer measures.
+
+The analytical PRB model captures the dominant mechanism behavior, making it useful for early-stage design and rapid performance estimates. However, FEA is required for higher-fidelity validation and for quantifying the effects of non-uniform stress distributions and local curvature.
+
+\section{CONCLUSIONS}
+A planar compliant mechanism was analyzed using a pseudo-rigid-body model and validated against finite element analysis. The overall trends in torque and slider displacement were successfully captured by the analytical model, but FEA revealed additional stiffness and nonlinearity not included in the reduced-order formulation. The interactive app complements the report by enabling parameter studies and comparison of analytical and numerical predictions. For future work, the analytical model can be improved by incorporating distributed compliance effects, nonlinear beam theory, and a more detailed representation of the flexural element geometry.
+
+\section{REFERENCES}
+\begin{thebibliography}{9}
+    \bibitem{howell1995parametric} L. L. Howell and A. Midha, "Parametric Deflection Approximations for End-Loaded, Large-Deflection Beams in Compliant Mechanisms," \textit{ASME Journal of Mechanical Design}, vol. 117, no. 1, pp. 156--162, March 1995.
+    \bibitem{su2024compliant} H. Su, "Advanced Kinematics: Compliant Mechanisms Lecture 3: Pseudo Rigid Body Models," The Ohio State University, 2024.
+\end{thebibliography}
+
+\end{document}

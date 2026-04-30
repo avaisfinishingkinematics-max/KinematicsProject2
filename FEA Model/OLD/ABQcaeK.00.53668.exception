@@ -1,0 +1,38 @@
+<Description>
+   ABAQUS/ABQcaeK rank 0 received the ABORT signal
+
+</Description>
+
+<Context>
+   CAE
+</Context>
+
+<Callstack>
+</Callstack>
+
+<Memory>
+   <Current>            0 GB </Current>
+   <Resident>           0 GB </Resident>
+   <Physical>          15 GB </Physical>
+   <Limit>              0 GB </Limit>
+   <Accessible>        15 GB </Accessible>
+   <Free>               2 GB </Free>
+   <Allocator>            DL </Allocator>
+</Memory>
+
+<Swap>
+       <Size>          53 GB </Size>
+       <Used>          29 GB </Used>
+       <Free>          24 GB </Free>
+</Swap>
+
+<Directories>
+  <current> C:\Users\merrifield.12\OneDrive - The Ohio State University\classes\MECHENG 7751 Advanced Kinematics and Mechanics\project 2\FEA Model </current> <free>    118 GB </free>   <used>    819 GB </used> 
+     <temp> C:\Users\MERRIF~1.12\AppData\Local\Temp </temp>    <free>    118 GB </free>
+</Directories>
+
+<Installation>
+     <Version> Learning Edition 2025 2025 HF2 </Version>
+       <Build> 2025_03_14-09.12.51 RELr427 199052 </Build>
+</Installation>
+

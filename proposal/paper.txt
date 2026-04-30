@@ -1,0 +1,781 @@
+                                                                                                                                               Downloaded from http://asmedigitalcollection.asme.org/mechanicaldesign/article-pdf/117/1/156/5633639/156_1.pdf by Ohio State University | OSU user on 08 April 2026
+                                                   Parametric Deflection
+                        L. L. Howell               Approximations for End-Loaded,
+                      Assistant Professor.
+       Mechanical Engineering Department,
+               Brigham Young University,
+                                                   Large-Deflection Beams in
+                        Provo, UT 84602
+                                                   Compliant Mechanisms
+                            A. MIdha               Geometric nonlinearities often complicate the analysis of systems containing large-
+                                Professor.         deflection members. The time and resources required to develop closed-form or
+          Elastic Mechanisms Laboratory,
+        School of Mechanical Engineering,
+                                                   numerical solutions have inspired the development of a simple method of approx-
+                       Purdue University,          imating the deflection path of end-loaded, large-deflection cantilever beams. The
+                 West Lafayette, IN 47907         path coordinates are parameterized in a single parameter called the pseudo-rigid-
+                                                   body angle. The approximations are accurate to within 0.5 percent of the closed-
+                                                  form elliptic integral solutions. A physical model is associated with the method, and
+                                                   may be used to simplify complex problems. The method proves to be particularly
+                                                   useful in the analysis and design of compliant mechanisms.
+
+
+
+Introduction
+   Linearized beam equations prove to be adequate for many                 is no longer small. An accurate analysis method, which takes
+applications requiring deflection analysis. These equations tend           into account the resulting nonlinearities, is discussed later.
+to be less accurate, however, as deflections become large and                 An important application of large-deflection analysis tech-
+the small-deflection Unearization less applicable. The differ-             niques is found in the analysis and design of compliant mech-
+ence between large- and small-deflection assumptions lies in               anisms (Burns and Crossley, 1966; Shoup and McLarnan, 1971;
+the treatment of the BernouUi-Euler beam equation, which                   Her, 1986; Nahvi, 1991). A comphant mechanism is one which
+states that the bending moment is proportional to beam cur-                gains some or all of its motion from the relative flexibility of
+vature. Using the exact equation for curvature, the beam equa-             its members rather than from rigid-body joints only (Howell
+tion can be written as                                                     and Midha, 1993). For example, consider the two simple com-
+                                                                           pliant mechanisms shown in Fig. 1 (Salamon, 1989). If not for
+                                                                           the motion allowed by compliance in the flexible members,
+                                             %                             both mechanisms would be structures and unable to perform
+                 M=EI — = EI                     2\ 3/2              (1)   prescribed tasks. Typically, the motion of such mechanisms
+                      ds
+                                      -'S                                  results from deflections that are large, and therefore nonlinear.
+                                                                              There are several methods available that take into account
+                                                                           the nonlinearities introduced by large deflections. A classical
+where M is the moment, dQ/ds the rate of change of angular                 method, which yields a closed-form solution, involves the so-
+deflection along the length of the beam, y the transverse de-              lution of a second-order, nonlinear differential equation using
+flection, X the coordinate along the undeflected beam axis,                elliptic integrals (Bisshopp and Drucker, 1945; Frisch-Fay,
+and EI the flexural rigidity. For small deflections, the square            1969; Mattiasson, 1981). The advantage of this solution tech-
+of the slope, {dy/dx), can be assumed to be negligible com-                nique is that it provides closed-form solutions. The disadvan-
+pared to unity in the denominator of Eq. (1). The curvature                tage is that the derivations are cumbersome and solutions exist
+may then be approximated by the second derivative oiy, i.e.,               for only relatively simple geometries and loadings. Numerical
+d^y/dx^. This linearization leads to the classical beam moment-            methods, such as the finite element method, are capable of
+curvature equation (Roark and Young, 1982):                                solving much more general problems (Yang, 1973; Bathe and
+                                d\                                         Bolourch, 1979; Her, 1986; Nahvi, 1991).
+                             M=EI^                         (2)                Numerical methods are typically used in the analysis of com-
+                                dx^
+                                                                           pliant mechanisms when an initial design has already been
+The above assumption is not valid in the analysis of large-                obtained. This initial design may be very difficult to obtain,
+deflection beams since the slope of the transverse deflection              however, since the nonlinearities of large deflections are cou-
+                                                                           pled with the desired kinematic motion of the overall mech-
+  Contributed by the Mechanisms Committee for publication in the JOURNAL   anism. Approximating the nonlinear, large-deflection
+OF MECHANICAL DESIGN. Manuscript received Aug. 1992; revised Aug. 1993.    characteristics of flexible members by means of mathematical
+Associate Technical Editor; G. L. Kinzel.                                  or physical models would be helpful in the expeditious design
+
+1 5 6 / V o l . 117, MARCH 1995                                                                             Transactions of the ASME
+                                                     Copyright © 1995 by ASME
+                                                                                                                                            Downloaded from http://asmedigitalcollection.asme.org/mechanicaldesign/article-pdf/117/1/156/5633639/156_1.pdf by Ohio State University | OSU user on 08 April 2026
+                                                   rigid
+
+
+
+                                (a)
+
+
+
+
+                      flexural pivot
+
+
+                                                                                     Fig. 2 Cantilever beam with end forces
+
+
+
+                                                                                          M=P{a-x)-VnP(h-y)                     (3)
+                                                                         Using the BernouUi-Euler equation described above, the cur-
+                                                                         vature may be written as
+                  /1 /111   /1 / > 11 /1 m   n I
+                                                                                         d^ P
+                                (b)                                                                                              (4)
+Fig. 1   (a) A partially compliant and (b) a fully compliant mechanism   „_^
+
+
+
+of compliant mechanisms. The development of such a model                                    ds^~El\      ds " ds)
+is the purpose of this paper.
+   Large-deflection approximations currently exist, which di-            or
+rectly approximate the elliptic integral solutions. Frisch-Fay                             d^e -P   . „
+ (1963) truncated the infinite series of the complete elliptic in-                         ^ = — («sine + cose)                      (5)
+tegral of the first kind to develop an approximation for the
+lateral deflection of a post-buckled column. Bisshopp (1973)             Integrating yields
+also used truncated series expressions to derive simplified equa-                      1 [deV P
+tions for a cantilever beam with a single transverse load. These                                   cos 6 - sin 6) + Ci               (6)
+                                                                                       2[js) =£/("
+equations yield transverse deflections which are valid to within
+2 percent error for a load index, a > l . The parametric ap-             Using the conditions at the beam end, where B = 6o and d6/
+proximations developed herein differ from the above efforts              ds = 0, Ci is found as
+in that a physical model is used as an aid in their development,
+rather than directly approximating the elliptic integral equa-                             ^1=77; (sin^o-n cos ^o)                   (7)
+tions. This paper develops approximate equations for large-                                   EI
+deflection cantilever beams with combined end forces, and no
+end moments, and expresses them in a single parameter, 0,                Substituting Eq. (7) into Eq. (6), and solving for dd/ds yields:
+termed the pseudo-rigid-body angle.                                                     de
+   Large deflection approximations prove to be very useful in                             , =V2-- yJX-sin d + n cos 6                 (8)
+compliant mechanisms design, as well as in their motion vis-                            ds        I
+ualization. Burns and Crossley (1968) approximated the kin-              where
+ematics of flexible-link mechanisms by assuming that large-
+deflection members transverse a path with a radius of 5/6 the                                         2 PI'                           (9)
+member length. Howell and Midha (1993) developed a method
+of modeling compliant mechanisms with flexible segments that                                  X = sin do-n cos do                  (lOfl)
+are short in length compared to the more rigid sections. An
+example will be given to illustrate the use of the parametric            or
+approximations developed herein in compliant mechanism                                         X = »j cos (6o-<Ai)
+analysis.                                                                                                                          ilOb)
+                                                                         and
+
+Cantilever Beam with End Forces                                                         V = \l+v^;      </)i = t a n " '
+   An initially straight cantilever beam with combined (non-                                                                       (11)
+follower) axial and transverse end forces is shown in Fig. 2. Separating variables in Eq. (8) and integrating yields
+The combined end forces may also be treated as a single force
+acting at an angle 0, where <^ = t a n ' ' ' ( l / - n ) , as shown. A              ^(ds=C^=JL=                                  (12)
+closed-form solution for the end deflection of the beam may
+be derived, with the assumption that the beam is linearly elastic,                    I   Jo       Jo y/\-sin$       +   n cos 6
+inextensible, rigid in shear, and of constant cross section. The or (see Byrd and Friedman, 1954, or Howell, 1991, for details
+internal moment at any point in the beam is given by                   of integration):
+
+Journal of Mechanical Design                                                                            MARCH 1995, Vol. 117/157
+                                 for do<4>\                                             1.0
+                                                                                        0.9-1                     See Figure 4
+
+                  a = \[rj
+                                 Hi-)-              F{y, t)              (13)           0.8
+                                                                                        0.7-1
+where                                                                                   0.6
+                                                                                    f   0.3.
+
+
+
+
+                                                                                                                                                    Downloaded from http://asmedigitalcollection.asme.org/mechanicaldesign/article-pdf/117/1/156/5633639/156_1.pdf by Ohio State University | OSU user on 08 April 2026
+                                 = sin                                   (14)           0.4.
+                                                   +\                                   0.3-
+                                                                                        0.2.
+                                 t=                                      (15)
+                                              2„                                        0.1-
+                                                                                        0.0-^     1   1   1   1   1   1   1   1   ^ ^      p
+and F (/3, q) is an incomplete elliptic integral of the first kind                         -0.2 -0.1 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+with amplitude fi and modulus q (Hancock, 1958; Greenhill,
+1959) defined as
+                                                   d<j>                                   Fig. 3    Beam tip deflection for various end forces
+                      F(^,^,-,
+                                       •In
+                                             V 1 - ^sir
+                                                    ^sm^(j>
+The final vertical position of the end of the beam may now
+be calculated. The curvature, k, may be rewritten as
+                       , de dddy     de . .                              ,,,,
+                       A: = — = — — = — s i n e                          (16)
+                        , ds dy ds dy
+Substituting Eq. (16) into Eq. (8), separating variables, and
+rearranging yields:
+                (^     = ^ ('"          sin e de                        ^j^^
+                \l)      2a' Jo V X - s i n d + nco&6
+Integrating the above equations results in (see Byrd and Fried-
+man, 1954, or Howell, 1991, for integrating details):
+
+
+
+
+                                                4-W2)?(i) + X) cos 7}   (18)
+
+where £(16, q) is an incomplete integral of the second kind with
+amplitude fi and modulus q defined as
+
+                 E{&,q)=\                      \l\-qhm^ d<j)
+                                  Jo
+ The final horizontal position may be found in a similar
+manner, only now the curvature is written as
+                    , de de dx de                        (19)
+                    /: = — = — — = —cose
+                         firs' dx ds dx
+Substituting Eq. (19) into Eq. (8), separating variables and
+integrating yields:
+
+            •   /(F(f.r)-F(,,
+                   -nr,\F\^,t\~F(y,t)
+I ari 5/2
+
+
+        + 2 (£(7,0-fife/                         + V2t)(r)-I-X) cos 7   (20)
+                                                                                        Fig. 4     Beam lip deflection for various end forces
+
+   The traditional method of displaying large-deflection results
+is to plot the beam end coordinates as a function of the load.
+                                                                                  (H) it is noted that these paths are initially nearly circular,
+Valuable insight into the nature of the deflections may be
+                                                                                  with a center of curvature at some point along the length
+gained by plotting these in an alternative manner. Figure 3
+                                                                                  of the undeflected beam. The deflection path for a particular
+shows the tip deflections plotted in [(a//), {b/l)\ plane for
+                                                                                  loading diverges from the near circular path as its end an-
+various values of n. These curves represent the beam tip de-
+                                                                                  gular deflection, eg, approaches the angle of the equivalent
+flection paths which minimize the beam strain energy for given
+                                                                                  applied load (^ = tan" ( l / - n ) .
+load combinations (Gorski, 1976). A symbol is placed on each
+curve at every 2 deg. of beam end angular deflection. Figure                    These phenomena will be verified and used to obtain simple
+4 shows a closer view of the beginning of the deflection paths.                 parametric approximations for the large-deflection analysis of
+Two points are surmised from the data plotted in Figs. 3 and                    end-loaded cantilever beams.
+4. These are:
+  (i) the deflection paths for all loads are remarkably similar                 Pseudo-Rigid-Body Model and Parameterization
+  at the beginning of the path, and                                               The idea, that a large-deflection beam with end loads initially
+
+158/Vol. 117, MARCH 1995                                                                                              Transactions of the ASME
+                  a, /-5,                                                                                  error V         (a,b)
+                                                                                   ((/(l-7(l-cose)),Y;sin0) I
+
+
+                                     ,    %   •
+
+
+
+
+                                     / / --
+           pseudo-rigid-                                                                                                                deflection calculated using
+           body link                                                                                                                    elliptic integral approach
+
+
+
+
+                                                                                                                                                                             Downloaded from http://asmedigitalcollection.asme.org/mechanicaldesign/article-pdf/117/1/156/5633639/156_1.pdf by Ohio State University | OSU user on 08 April 2026
+                                                                                         deflection determined by
+                                                                                         pseudo-rigid-body
+                                                                                         approximation
+
+          nonlinear , /
+          spnng    /
+    • y                           pseudo-rigid-
+                  /             / body angle
+                                                                                                                                                (/,0)
+              /y^characteristic\
+                  pivot          i                                                                                  original, undeflected -
+                                                                                                                    position of beam end
+                                                                     -nP
+                                     EI                                            Fig. 6    Determination of error in deflection approximations
+                                                  . characteristic
+                                                    radius
+
+
+                                                                                             error /error\
+                                                                                         g(e)=-^<(-^l                               forO<e<0„,,                       (23)
+     Fig. 5   Parametric approximation of large-deflection beam                                        ^        \       ^ /max
+                                                                               where error/h^ is the relative deflection error, and a and b are
+                                                                               the horizontal and vertical coordinate of the deflected end,
+                                                                               respectively, calculated using the elliptic integral approach. The
+follows a near-circular path, will be used to develop parametric               error in the deflection approximation, as defined here, is il-
+approximations for the beam deflection path. A physical model                  lustrated in Fig. 6. The deflections calculated by the elliptic
+termed a pseudo-rigid-body model will be used to describe                      integral approach, 6^. and by the pseudo-rigid-body approxi-
+these relationships. A pseudo-rigid-body model of a large-                     mation, ha, are given by
+deflection beam is shown in Fig. 5. Here, it is assumed that
+the near circular path can be accurately modeled by two rigid
+links, joined at a pivot along the beam. A spring with nonlinear                                            h, =        -^{l-af-Vb^                                   (24)
+stiffness characteristics is placed at the pivot to represent the
+beam's resistance to deflection. The location of this pseudo-                                  5« = •N/(7/(1 - cos 0))^ -I- (7/ sin Qf                                (25)
+rigid-body "characteristic pivot" is measured from the beam                    The error in the deflection is calculated as
+end as a fraction of the beam length, where the fractional
+distance is 7/, and 7 is called the "characteristic radius factor."
+The product 7/, the "characteristic radius," is the radius of                    error            - ( l - 7 ( l - c o s 0 ) ) ) -f ( - - 7 sin 8                      (26)
+the circular deflection path traversed by the end of the pseudo-
+rigid-body link. It is also the length of the pseudo-rigid-body
+link.
+   The pseudo-rigid-body approximation described above will                                       - ( l - 7 ( l - c o s 0 ) ) ) - I - ( - - 7 sin 0
+be used to parameterize deflection path, beam end angular
+deflection, and load-deflection relationships in 0, the "pseudo-                 error                                                                                (27)
+rigid-body angle." In equation form:
+                              ^=/i(e)                        (21a)                                                    1-
+                                                                                                                           /       -f
+                                                                       (lib)
+                                                                   One-Dimensional Optimization. Many numerical, one-di-
+                                                                mensional optimization methods are available, some of the
+                                                          (21c) most common of which are elimination methods, such as the
+                                                                Fibonacci and Golden section methods and interpolation meth-
+                                                         (2ld) ods, e.g., the cubic and direct root methods (Rao, 1984). The
+A discussion on the development of the above relationships method described and used herein is the Golden Section
+follows.                                                        method. This method is chosen because of its simplicity, the
+                                                                ability to easily specify an interval of uncertainty as the stop-
+   Parametric Approximation of Beam Deflection Path. An ping criterion, and the elimination of the need for derivative
+acceptable value for the characteristic radius factor, 7, may evaluations.
+be found by first determining the maximum acceptable per-          The Golden Section elimination method is started by choos-
+centage error in deflection. An optimization method is then ing an initial interval of uncertainty in which the optimum is
+used to find that 7 which would allow the maximum pseudo- known to lie. For instance, consider a function with an interval
+rigid-body angle, 9, while satisfying the maximum error con- of uncertainty Lg, where Lo = Xright — Xie/i, as shown in Fig. 7(a).
+straint. This one-dimensional optimization problem may be Two experiments are carried out at the points Xi and X2, located
+stated formally as follows:                                     at a distance of .382Lo from the ends of the interval, i.e.,
+   Find the value of the characteristic radius factor, y, which Xi=Xiefi+.3S2Lo and X2=Xr/gAr--382Lo, Fig. 7(a). Assuming
+maximizes the pseudo-rigid-body angle, Q, where                 that the function is unimodal, i.e., it has only one local max-
+                                                                imum or minimum in the interval, part of the interval may be
+                   G = tan"                                (22) eliminated. For the maximization problem, the design variable
+                              ^0-/(1-7)                         nearest the optimum of a unimodal function will have the
+subject to the parametric constraint                            highest function value, and the design variable with the smallest
+
+Journal of Mechanical Design                                                                                               MARCH 1995, Vol. 117/159
+                                                                                                                             input A O c C "^e ^'max,/, Y
+   fl
+   h                       7^      I              I N _ . , , ^ - unimodal objective                                                     1
+                                                                                                                                   60 = 9old = 0
+                      /"
+                  /                                                                                                                      ''
+
+
+
+
+                                                                                                                                                                  Downloaded from http://asmedigitalcollection.asme.org/mechanicaldesign/article-pdf/117/1/156/5633639/156_1.pdf by Ohio State University | OSU user on 08 April 2026
+                                                                                                                                  00 — A60 + 60
+
+                 382Lo-                                                                                                                  ''
+                                                                                                                           calculate beam end coordinates,
+                                                                                                                           a and 6, using elliptic-integral
+                                          Lo-                                                                              approach (eqns (13), (18), (20))
+
+                                                  Ixxxxxxxxxxxy^                                                                         '
+        "left                      "1             "2           \            "right
+                                           i^\                     interval
+                                                                                                                                         \a-(l-7)']
+                                                                   eliminated
+                                                                                                                                         ''
+
+                                                                                                                          ^(A-(l-Y(l-cos0))f+(ii-7sin0f
+                                                                                                                error -
+                                                                                                                 8e
+
+                  /
+                                                       \                                                                            V(i-ff*()^r
+                                   r--.382L2-              \
+                382L2-«
+          /                             - L 2 -                                                 ft \A - 0   ^    yes         ' ^ error < (errorv      ^   ^
+
+
+         KXXXXXXX
+                                                  xxxxxxxxxxx:            X
+        'left
+                                          (b)
+                          Fig. 7   Golden section method
+                                                                                                                                  output ©„,
+
+                                                                                       Fig. 8     One-dlmenslonal optimization objective function modified to
+function value defines one end of the new interval of uncer- account for parametric constraint
+tainty, L%, Fig. 7(6). Two new experiments are now conducted
+in the new interval of uncertainty at a distance of .382L2 from          1.0-
+either end, as shown in Fig. 1(b). This method is continued
+unitl the interval of uncertainty is as small as desired.                0.9-
+   The problem at hand is to determine the characteristic radius
+factor, 7, which will provide the best pseudo-rigid-body esti-           0.8-
+mate for a large-deflection beam. To facilitate the use of the           0.7-
+Golden Section method described above, the objective function
+is modified to take into account the parametric constraint.              0.6-
+This modification is shown in a flow chart form in Fig. 8. The
+maximum relative deflection error, (error/6e)max, and the step        A 0.3.
+                                                                                       — elliptic integral solution
+size for the beam end angular deflection, Ado, are required
+inputs. The beam end angular deflection is initially set equal           0.4.          - o parametric approximation
+to A6„ and the vertical and horizontal deflections are calculated
+                                                                         0.3-                         n=0
+using the elliptic integral solution of Eqs. (13), (18), and (20).
+The pseudo-rigid-body angle, 0, and the relative error in the            0.2-
+                                                                                                   Y=.85165
+approximated deflection are determined using Eqs. (22) and
+(27), respectively. If this error is less than the maximum al-           0.1-
+lowable relative error, {error/5e)mm then the beam end angular
+deflection is incremented by A^o and the process is continued.           0.0-    _l   1    1     1      1      ^    1 1 1_
+When the maximum error is exceeded, the previous value of                    0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+Gmax is taken as the objective function value for the given
+design variable, 7. The values of A0o and (error/8e)m»x used in
+the work that follows are 0.1 deg. and 0.5 percent, respectively.  Fig. 9 Parametric approximation of beam deflection path for n = 0
+
+
+  Characteristic Radius Factor (7). The optimization tech-
+nique described above is used to find the optimal value of the                         relative error, error/be, are shown plotted in Fig. 10 with 0.
+characteristic radius factor, 7. Figure 9 shows the results for                        The value of 0 for zero error represents the point where the
+n = 0, where the optimal 7 is found to be .8517. This represents                       approximate and exact solution curves cross.
+an approximation which is associated with an error smaller                                Figures 11 and 12 show 7 and the beam end angular de-
+than 0.5 percent, a maximum beam end angular deflection of                             flection parameterization limit, ^omax. respectively, plotted as
+^oma)( = 77 deg., and a vertical deflection equal to nearly 80                         functions of n. Equations to describe these relationships will
+percent of the beam length. The absolute error, error/l, and                           be developed later.
+
+160/Vol. 117, MARCH 1995                                                                                                             Transactions of the ASIVIE
+           0.005                                                                                              150-
+
+
+
+
+           0.004-
+
+
+
+                                                                                                              100-
+
+
+
+
+                                                                                                                                                                               Downloaded from http://asmedigitalcollection.asme.org/mechanicaldesign/article-pdf/117/1/156/5633639/156_1.pdf by Ohio State University | OSU user on 08 April 2026
+           0.003-
+
+                                                                                                  (degrees)
+
+           0.002-
+
+
+
+
+           0.001
+
+
+
+
+           O-"**-)^'!       1   1   1   1   1    1   1   1    1     1     1    1
+                   0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9   1.0   1.1   1.2   1.3
+
+                                            0(rad)
+                                                                                            Fig. 12       Beam end anguiardeflection parameterization limit, #„me« versus
+ Fig. 10     Error in parametric approximation of deflection for n = 0                      n
+      0.89-
+
+
+
+
+                                                                                                       Errori= (Yj-ao-axXi-ajX^-..        .-a„x")         (31)
+                                                                                            where Yj is the exact value oiy at data point /. The total error,
+                                                                                            E, is defined as the sum of the error squarred at all data points:
+                                                                                                    N
+
+
+                                                                                                   1=]
+
+                                                                                                                            N
+                                                                                                                      = 2 {Yi-ao'aiXi-a2xj-..          .-a„ xff         (32)
+                                                                                                                           1=1
+
+                                                                                            This error is minimized by differentiating Eq. (32) with respect
+                                                                                            to each coefficient, a,-, i.e.:
+
+                                                                                                  = ^2(Yi-ao-aiXi-a2xj-...-a„xf)(-l)                              =0
+                                                                                            dan
+
+                                                                                                                                                                        (33)
+      Fig. 11         Riot of cliaracteristic radius factor, y, versus n
+                                                                                            dE
+                                                                                            —                         =Yi^(Yi-''o-aiXi-a2xj-...-a„xf)(-xf)=0
+                                                                                            da,         j=i
+   The coordinates of the end of a deflected beam may now
+be given by equations parameterized in terms of the pseudo-                                 SimpUfying Eqs. (33) yields:
+rigid-body angle, 0 (Fig. 5). These equations may be written
+as
+                                                                                                         aoN +aiJ]xi + a2YiXi+---+a„ 5 ] ^ ' ' = 2 ^ '
+                                                                                                                           /=i                   (=1        ;=i
+                                = 1 - 7 ( 1 - c o s 0)                               (28)
+                                                                                                                                                                        (34)
+                                    -r = 7 sin 0                                     (29)
+                                                                                            «o 2 x f + «, ^xr'                   +a2j]x f+ .. .+a„^xf"=-^ Y,xf
+                                                                                                                     i=l                           (=1            ;=i
+Simplified Relations for 7 and ^omax
+   The values for the characteristic radius factor, 7, plotted in The coefficients a,- (/ = 0, ...,«) may now be found by solving
+Fig. 11 would be more useful if the value of 7 were written as Eqs. (34) simultaneously.
+a function of n. Such a relation is possible using linear and           The correlation coefficient, r, reveals how good the fit is
+polynomial curve-fitting techniques with 7 versus n data (Bur-       (Holman,   1989). This coefficient is defined in a general form
+den and Faires, 1985).                                               as
+                                                                                                       2 \ 1/2
+   To begin, consider a general «th degree polynomial expressed
+as                                                                                          r=[l--^                              (35)
+                y = ao + aiX+a2X^ + ...+a„x"                     (30)where, the standard deviation of y, Oy, is
+where, for example, for the problem at hand, x=n, and y = y.
+The error in Eq. (30) for the /th data point may be expressed                                   '^ (y>'y.f^'''                   (36)
+as                                                                                                    N-l
+
+Journal of Mechanical Design                                                                                                           MARCH 1995, Vol. 117/161
+and, the standard error of estimate of y on x, a^,, x is
+
+                                                                       (37)
+                                       N~2
+and yi are the actual values of >>, yi^ the values computed from
+the least squares equation, and
+
+
+
+
+                                                                                                                                                                Downloaded from http://asmedigitalcollection.asme.org/mechanicaldesign/article-pdf/117/1/156/5633639/156_1.pdf by Ohio State University | OSU user on 08 April 2026
+                               ^'" = ^I]-^'                            (38)                                                        calculated relation
+                                                                                                                                   linear approximatioti
+
+    Applying the above technique, the following equations are                                                                      e„ = 1.23850
+
+developed:                                                                                                                           r2 = 0.9988
+
+7 =.841655-.0067807n
+                           + .000438004n^ 0.5<«< 10.0 (39a)
+           7 =.852144-.0182867«; - 1.8316<«< 0.5 (i9b)
+          7 =.912364+.0145928«; - 5 . 0 < n < - 1.8316 (39c)                                 ~i   I    I   I   I   I   \   I    I—I—I—I—I—I—I
+The square of the correlation coefficients (r^) for the above                           0.0 0.1 0.2 0.3 0.4 0.5 0,6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5
+relationships are .9440, .9996, and .9997, respectively. These                                                        0 (rad)
+represent errors in y of less than 0.005, or 0.6 percent.
+    An equation relating the parameterization limit, ^omax) and                      Fig.  13   Linear   approximation    of #„ versus e for n = 0
+
+n is also needed. This limit represents the beam end angular
+deflection at which the parametric approximation and the the- or.
+oretical values begin to diverge. As explained earlier, this di-
+vergence occurs as the beam end angular deflection approaches                                                   yav'-.SS
+the equivalent load angle, <>  / = t a n " ' ( ! / - « ) . For this reason,
+it is expected that the limit would be a function of <^. Assuming
+a linear variation, a linear least-squares analysis is performed Parametric Approximations of Beam End Angular De-
+using x = domax and y = <l>. The result may be used to express              flection
+tancj) as                                                                      Now that parametric equations have been developed for the
+tan ( - .025127 + 1.1487007e„„,x)                                           deflection path, the next step is to find a relationship between
+                                                                            the pseudo-rigid-body angle, 9, and the beam end angular
+                                             ; -5.0<rt<10.0 (40) deflection, 60. Recall that the curves of Figs. 3 and 4 have a
+                                       -«                                   symbol placed at every 2 deg. of beam end angular deflection.
+The above equation is a close approximation, but it overes- Also note that in the region where the path is nearly circular,
+timatesflomaxfor some values of n. Such a condition is un- the arc lengths along any given path between two consecutive
+desirable since it would suggest the use of parametric symbols appear to be constant. If the arc length. As, is constant
+approximations at times when, in fact, they are not applicable. between equal increments of do, A60, then a linear relationship
+For this reason, the linear argument of the tangent function is implied and the following may be stated:
+of Eq. (40) is rounded so as to give approximations that have                                                    5 = 0^00                             (43a)
+acceptable accuracy but tend to be slightly conservative. This
+new equation is                                                             where  c^ is  a constant     of  proportionality.    Also,   from    the pseudo-
+                                                                            rigid-body model of the beam,
+                                     1
+              0omax = O.85 tan" - - ; -5.0<n<10.0                     (41)                                     s= {yl)e                                (43ft)
+                                                                            Equations (43a) and (436) lead to the linear relationship be-
+The maximum error in the above equation, for 0.0 <« < 10.0, tween 60 and 9:
+is 6.4 deg. (or 4.3 percent) at n= lO.O. For -5.0<n<0.0, the
+maximum error is 2 deg. at «= -5,0.                                                                             do = CeQ                                (44)
+   Rule of Thumb for 7. A rough approximation of 7 may                      where  constant     Ce  is  termed    the "parametric      angle   coefficient."
+be made by determining its average value over a specified range This linear relationship may be tested by performing a linear
+of n, or                                                                    least squares curve fit and calculating the correlation coeffi-
+                                                                            cient to determine the quality of the fit. Figure 13 shows a
+                                  [."2
+                                                                            linear curve fit for a large-deflection beam loaded with a single
+                                  I ydn                                     transverse load (« = 0). The least squares approximation is
+                           yav = - C"2                                (42) based on data taken at every 0.1 deg. of beam end angular
+                                                                            deflection up to the limit of approximation accuracy, do = ll
+                                       dn
+                                                                            deg., and has a correlation coefficient given by /^ = 0.9988.
+                                                                            Table 1 shows this information for various values of n and <ji,
+   For an equivalent load in the range 135.0 deg.<0<63.4 where 0 = tan"'(l/«).
+deg. and - 0 . 5 < n s 1.0, ya^ is found from Eqs. (39) and (42)
+as
+            0.5                               pi.o
+
+
+
+yav=-
+        J   -0.5
+                   (.852144- .0182867n)c?n+
+                                              •'0.5
+                                                      (.841655- .0067807« + .000438004«V«
+                                                        dn
+
+                               7»«.84704
+
+162/Vol. 117, MARCH 1995                                                                                             Transactions of the ASME
+Parameterized Load>Deflection Relations                                               Data points were taken at every 0.1 deg. of beam end angular
+   The deflection path and beam end angular deflection are                            deflection up to the parameterization limit. The approxima-
+now parameterized and an equation is desired relating the                             tions for n= - 0 . 5 , 0.0, 0.5 and 2.0 are shown in Fig. 14.
+pseudo-rigid-body angle, 0, and the load index, a^. The com-                             In the design and analysis of compliant mechanisms, the
+plexity of the relationship requires a polynomial equation to                         desired deflection is often known and the load needed to cause
+adequately approximate the load-deflection relation. The use                          this deflection is calculated, thus rendering Eq. (45) very useful.
+of polynomials in such applications is not unusual. For ex-                           However, in many applications the load is known and the
+
+
+
+
+                                                                                                                                                                        Downloaded from http://asmedigitalcollection.asme.org/mechanicaldesign/article-pdf/117/1/156/5633639/156_1.pdf by Ohio State University | OSU user on 08 April 2026
+ample, the Structural Stability Research Council (SSRC) pre-                          corresponding deflection is unknown. To remedy this, the re-
+sents a polynomial curve fit relating the buckling load of a                          sulting polynomial equation takes the form
+steel column to its slenderness ratio (Chen and Liu, 1987).                                   Q = bia'^ + b2(o?f + bAa^f + b4(ay + bs{a^)' (46)
+   The load parameterization relation is found using a 5th                            where bi, i=l,          , N, are called the "flexibility coeffi-
+degree polynomial, i.e.,                                                              cients."
+         o>:^=/(9)=«ie+«2©^+a3e'+fl4e''+a5e'                                (45)
+where«„/'=l, . . . ,jVare termed the "stiffness coefficients."
+                                                                                                                              n=-0.5
+
+
+
+         Table 1    Parameterized angular deflection data
+                     n     •           ce           r'
+                    0.0    90.0      1.2385     0.9988
+                    0.5   116.6      1.2430     0.9992
+                    1.0   135.0      1.2467     0.9994
+                    1.5   146.3      1.2492     0.9994                                                                                                          n=2.0
+                    2.0   153.4      1.2511     0.9995
+                    3.0   161.6      1.2534     0.9995
+                    4.0   166.0      1.2548     0.9995
+                    5.0   168.7      1.2557     0.9995
+                    7.5   172.4      1.2570     0.9995
+                   10.0   174.3      1.2578     0.9995
+                   -0.5    63.4      1.2348     0.9979
+                   -1.0    45.0      1.2323     0.9963
+                   -1.5    33.7      1.2322     0.9942
+                   -2.0    26.6      1.2293     0.9931
+                   -3.0    18.4      1.2119     0.9939
+                   -4.0    14.0      1.1971     0.9951                                                                        0 (rad)
+                   -5.0    11.3      1.1788     0.9952                                         Fig. 14    Plot of a^ versus 0 for n = 0.0, - 0 . 5 , 0.5, 2.0
+
+
+
+                                                         Table 2 Parameterized load-deflection data
+                               n      «          ai,bi          02,b2              031*3         at.bi           as.bs          .2
+                               0.0    90.0    0.27856E+01    •0.25170E+01     0.10216E+O2     -0.12403E+02    0.70012E+01     0.99999
+                                              0.414I9E+00     -0.50824E-OI    -0.30078E-02      0.13762E-02   -0.93490E-04    0.99997
+                               0.5   116.6    0.26739E+01    -0.24966E401     0.52299E+O1     -0.45257E+01    0.18973E4O1     0.99999
+                                              0.41516E'fOO     0.65483E-01    •0.52909E-01      0.96586E-02   -O.58321E-03    0.99994
+                               1.0   135.0    0.25S07E+01    -0.29287E+01     0.41567E401     -0.28121E+01    0.91374E+00     0.99999
+                                              0.37136E+00     0.32037E+00     •0.18705E+00      0.36960E-01   -0.25465E-02    0.99992
+                               1.5   146.3    0.24781E+01    -0.32796E+01      0.39425E+01    -0.23141E+01    0.62785E+00     0.99999
+                                              0.27518E+00     0.77865E+00     -0.48309E+00     0.11048E+00    -0.89504E-02    0.99987
+                               2.0   153.4    0.23640E+01    -0.34644E+OI      0.38583E+01    -0.20887E+01     0.5043 lE+00   0.99999
+                                              0.12726E+00     0.14978E+01     -0.10455E+01     0.27893E+00     -0.26561E-01   0.99975
+                               3.0   161.6     0.2I373E+01   •0.35454E+O1      0.37192E+01    -0.18614E+01     0.39516E+00    0.99997
+                                              -0.28984E+00    0.38357E+01     -0.34063E+01     0.11927E+01    -0.14999E+00    0.99927
+                               4.0   166.0     0.19343E+01   -0.34439E+OI      0.35372E+O1    -0.17087E+01     0.J4008E+00    0.99990
+                                              -0.83488E+00    0.75368E+01     -0.82539E+01     0.36139E+01    -0.56975E+00    0.99860
+                               5.0   168.7     0.17602E+01   -O.32801E+O1      0.33378E-tOl   -0.15816E+0I     0.30321E+00    0.99976
+                                              -O.14816E+01    0.12761E+02     -0.16712E+02     0.88219E+01    -0.16791E+01    0.99786
+                               7.5   172.4     0.14301E+01   -0.28457E+O1      0.28742E+O1    -0.13316E+01     0.24355E+00    0.99914
+                                              .0.34488E+01    0.33349E+02     -0.62116E+02     0.47165E+02    -0.12938E+02    0.99600
+                            10.0     174.0     0.12021E+01   -0.24791E+01      0.25008E+01    -0.11476E+01     0.20536E+00    0.99465
+                                              -0.57968E+01    0.65889E+02     -0.15993E+03     0.15920E+03    -0.57304E+02    0.99826
+                            -5.0      11.3    0.4060:E+01    -0.96247E+02      0.25194E+04    -0.22038E+05     0.74899E+05    0.99988
+                                              0.36189E+00    -0.46190E+00      0.33721E+00    -0.1221 lE+00     0.16927E-01   0.99958
+                            -4.0      14.0    0.41534E+01    -0.81566E+O2      0.17380E+<M    -0.12425E+05     0.34465E+05    0.99988
+                                              0.35609E+00    -0.3643 lE+00     0.21264E+OO     -0.61499E-01     0.68059E-02   0.99957
+                            -3.0      18.4    0.51125E+01    -0.99428E4O2      0.14980E+04    -0.8028IE+04     0.16257E+05    0.99974
+                                              0.33922E+00    •0.23884E+00       0.91517E-01    -0.16957E-01     0.11868E-02   0.99904
+                            -2.0      26.6    0.59525E+01    -0.92012E+02      0.93345E+03    -0.34600E+04     0.47803E+O4    0.99958
+                                              0.32797E+00    -0.15D09E+00       0.36320E-01    -0.41905E-02     0.18129E-03   0.99848
+                            -1.5     33.7     0.50054E+01    -0.52377E+02      0.44035E+03    -0.13172E+O4     0.14918E+04    0.99975
+                                              0.34256E+00    -0.13589E+00      0.29608E-01     -0.31403E-02     0.12634E-03   0.99929
+                            -1.0     45.0     0.37108E+01    -0.18177E+O2     0.13173E+O3     -0.30872E+03     0.28733E+O3    0.99993
+                                              0.36969E+00    -0.12891E-tO0    0.26874E-01      -0.28741E-02     0.12018E-03   0.99990
+                            .0.5     63.4     0.30448E+01    -0.53973E+O1     0.33634E+O2     -0.58216E+02     0.43256E+O2    0.99998
+                                              0.39455E+00    -0.10415E+00     0.17426E-0I      -0.15976E-02     0.60416E-04   0.99999
+
+
+
+Journal of Mechanical Design                                                                                                  MARCH 1995, Vol. 117/163
+                                                                                                                                                            Downloaded from http://asmedigitalcollection.asme.org/mechanicaldesign/article-pdf/117/1/156/5633639/156_1.pdf by Ohio State University | OSU user on 08 April 2026
+                                  (a)
+                                                                          XB 4-
+
+
+
+
+                                            - coupler
+
+                                                                             2-
+                y   / />•               ^
+                                                        B   / slider
+               J
+                    ^    t    ;
+                        ••5                                                           n          I   I     I     I   I     I   1       I      I   I    I
+                                                                                  0       30    60   90   120   150 180 210 240 270 300 330           360
+                              (b)
+                                                                                                                V (degrees)
+Fig. IS (a) A compliant slider-crank mechanism, and {b) its pseudo-    Fig. 16 Slider displacement, Xg, versus * for compliant slider-crank
+rigid-body model                                                       mechanism
+
+
+   Table 2 shows the stiffness and flexibility coefficients in
+Eqs. (45) and (46) for various values of n, assuming 9 is in
+radians. The corresponding correlation coefficients, r^, are                                                         elliptic-integral solution
+also given. For ease of use in computations, the information
+in Table 2 may be approximated in equation form. This is                                                             parametric approximation
+done by extending the least squares approximation of Eqs.
+(30) through (38) to two dimensions and performing a bivariate
+curve fit. This yields:
+                          for 0.0<«<2.0
+a^ = 3.0807619-1.1972696^-1.324163e«
+  + 2.6426659^-0.7028159^n+ 0.5602229/?^-1.6157389'«
+                           + 0.4476989 V ; r^ = 0.99560 (47a)
+                        for -1.5<n<0.0
+a^ = 3.8748489 - 4.5612889^ - 1.2448459n
+  + 5.9306299^+12.1318499^-0.2512149«^-15.2888599'n
+                         + 22.4322809'«^; r^ = 0.99728 (47ft)                 -10              1 — i — r — I — I — I — I — I — I — I — I — I
+                                                                                      0        30 60 90 120 150 180 210 240 270 300 330 360
+
+
+Example
+   Consider the compliant slider-crank mechanism shown in              Fig. 17 Input torque requirements for compliant slider mechanism
+Fig. 15(o), where a flexible segment length, /, of 5.0 units, a
+crank length, /•2, of 3.0 units, and an offset, e, of 0.5 units
+are used. Plot the slider displacement, Xg, and the required
+crank input torque, r,„, with the crank input angle, a, using                                               \yA\
+the parametric approximations developed herein. Assume the                                   * p = sin '                             (51)
+following: the slider always remains in contact with ground,
+there is no frictional resistance to slider motion, and the flexible                    XB = H cos ^-^TT, COS *P + /-g                (52)
+segment is initially straight. Compare the results to that ob-                                  r,v, = Pr2C0S^                       (53)
+tained by the elliptic integral approach.
+   Since the slider will not support a force in the horizontal          Figure  16 shows   the  slider  coordinate, XB, versus ^ , calcu-
+direction, the force on the end of the flexible coupler is nec- lated using the above equations and compared to the solution
+essarily vertical, i.e., n = Q. Using Eqs. (29b) and (41), 7 and found from the use of the closed-form elliptic integral equa-
+^omax are calculated to be 0.852 and 76.5 deg., respectively. tions. Results for the input torque are shown in a similar
+The load relations may be determined from Eq. (47) or Table manner in Fig. 17.
+2. A pseudo-rigid-body model is developed as shown in Fig.
+I5{b). This model may now be analyzed using classical rigid- Conclusion
+body mechanism equations (Paul, 1979):                                  The geometric nonlinearity associated with large-deflection
+                                 ^3 = 7 /                       (48) beams makes their analysis very complicated. Developed herein
+                                                                     is a method of approximating the deflection path of end-loaded
+                              /•« = / - / - J                  (49) large-deflection cantilever beams. A physical model associated
+                         yA = ri sin * -f rs                    (50) with this approximation allows simplification of complex prob-
+
+164/Vol. 117, MARCH 1995                                                                                             Transactions of the ASME
+lems by means of a pseudo-rigid-body model. The values for Flexible Burns, R. H., and Crossley, F, R. E., 1966, "Structural Permutations of
+                                                                          Link Mechanisms," ASME Paper No. 66-Mech-5.
+7, a, b, and dgmm presented herein have been found from Burns, R. H., and Crossley, F. R. E., 1968, "Kinetostatic Synthesis of Flexible
+deflections calculated by use of the elliptic integral equations Link Mechanisms," ASME Paper No. 68-MECH-36.
+derived earlier, and have been verified by a numerical finite       Byrd, P. F., and Friedman, M. D., 1954, Handbook of Elliptic Integrals for
+element "chain" algorithm (Harrison, 1979; Her, 1986; How- Engineers and Physicists, Springer-Verlag, Berlin.
+                                                                    Frisch-Fay, R., 1962, Flexible Bars, Butterworth, Washington, D.C.
+ell and Midha, 1992).                                               Frisch-Fay, R., 1963, "Applications of Approximate Expressions for Com-
+   Several applications have been identified where implement- plete Elliptic Integrals," International Journal of Mechanical Sciences, Vol. 5,
+
+
+
+
+                                                                                                                                                                  Downloaded from http://asmedigitalcollection.asme.org/mechanicaldesign/article-pdf/117/1/156/5633639/156_1.pdf by Ohio State University | OSU user on 08 April 2026
+ing the above developments may be useful. Some of these are: No. 3, pp. 231-235.
+(/) The kinematic analysis and design of compliant mecha-           Gorski, W., 1976, " A Review of Literature and a Bibliography on Finite
+nisms: The pseudo-rigid-body model of a flexible beam may Elastic        Deflections of Bars," Transactions of the Institution of Engineers, Aus-
+                                                                 tralia, Civil Engineering Transactions, Vol. 18, No. 2, pp. 74-85.
+be used to model flexible links of compliant mechanisms. This       Greenhill, A. G., 1959, The Applications of Elliptic Functions, Dover Pub-
+would not only be valuable in determining the motion of com- lications, Inc., New York, New York.
+pliant mechanisms, but would also be a very useful tool in the      Hancock, H., 1958, Elliptic Integrals, Dover Publications, Inc., New York,
+design of such mechanisms to perform specific tasks. («) An New         York.
+                                                                    Harrison, H. B., 1973, "Post-Buckling Analysis of Non-Uniform Elastic
+approximation used to help iterative numerical solution tech- Columns," International Journal for Numerical Methods in Engineering, Vol.
+niques converge: Some numerical methods and elliptic integral 7, pp. 195-210.
+solutions require a shooting method when boundary conditions        Her, 1., 1986, "Methodology for Compliant Mechanism Design," Ph.D.
+must be satisfied (Winter and Shoup, 1972; Harrison, 1973; Dissertation,        Purdue University.
+                                                                    Holman, J. P., 1989, Experimental Methods for Engineers, Fifth Edition,
+Her, 1986). Convergence difficulties may be minimized or elim- McGraw-Hill Book Company, New York, New York.
+inated by selection of good initial estimates for the unknown       Howell, L. L., 1991, "The Design and Analysis of Large-Deflection Members
+design variables. The parametric approximations may be used in Compliant Mechanisms," M.S. Thesis, Purdue University.
+as a means of obtaining very accurate initial estimates. (H7)       Howell, L. L., and Midha, A., 1993, " A Method for the Design of CompUant
+The analysis and design of large-deflection structural com- Mechanisms          with Small-Length Flexural Pivots," ASME JOURNAL OF MECHAN-
+                                                                 ICAL DESIGN, in press.
+ponents: Though originally developed for use in compliant           Lau, J. H., 1982, "Large Deflections of Beams with Combined Loads,"
+mechanism analysis and design, the parametric approximations Journal of the Engineering Mechanics Division, Proceedings of the ASCE, Vol.
+may be effectively used in other application areas where large 108, No. EMI, Feb., pp. 180-185.
+                                                                    Mattiasson, K., 1981, "Numerical Results from Large Deflection Beam and
+deflections are encountered.                                     Frame Problems Analysed by Means of Elliptic Integrals," International Journal
+                                                                                  for Numerical Methods in Engineering, Vol. 17, pp. 145-153.
+Acknowledgment                                                                        Nahvi, H., 1991, "Static and Dynamic Analysis of Compliant Mechanisms
+                                                                                   Containing Highly Flexible Members," Ph.D. Dissertation, Purdue University.
+  The authors would like to acknowledge the support of the                            Paul, B., 1979, Kinematics and Dynamics of Planar Machinery, Prentice-
+School of Mechanical Engineering and the use of its facilities.                    Hall, Inc., Englewood Cliffs, NJ.
+The support of National Science Foundation for this research,                         Rao, S. S., 1984, Optimization: Theory and Applications, Wiley Eastern
+through NSF Grant No. MSS-8902777, is gratefully acknowl-                          Limited, New Delhi.
+                                                                                      Roark, R. J., and Young, W. C , 1982, Formulas for Stress and Strain,
+edged.                                                                             McGraw-Hill Book Company, New York, New York.
+                                                                                      Salamon, B. A., 1989, "Mechanical Advantage Aspects in Compliant Mech-
+References                                                                         anisms Design," M.S. Thesis, Purdue University.
+   Bathe, K.-J., and Bolourch, S., 1979, "Large Displacement Analysis of Three-       Shoup, T. E., and McLarnan, C. W., 1971, "On the Use of the Undulating
+Dimensional Beam Structures," International Journal for Numerical Methods          Elastica for the Analysis of Flexible Link Devices," ASME Journal of Engi-
+in Engineering, Vol. 14, pp. 961-986.                                              neering for Industry, Feb., pp. 263-267,
+   Bisshopp, K. E., 1973, "Approximations for Large Deflection of a Cantilever        Winter, S. J., and Shoup, T. E., 1972, "The Displacement Analysis of Path
+Beam," Quarterly of Applied Mathematics, Vol. 30, No. 4, Jan., pp. 521-526.        Generating Flexible-Link Mechanisms," Mechanisms and Machine Theory, Vol.
+   Bisshop, K. E., and Drucker, D. C , 1945, "Large Deflection of Cantilever       7, No. 4, pp. 443-451.
+Beams," Quarterly of Applied Mathematics, Vol. 3, No. 3, pp. 272-275.                 Yang, T. Y., 1973, "Matrix Displacement Solution to Elastica Problems of
+   Burden, R. L., and Faires, J. D., 1985, Numerical Analysis, Prindle, Weber      Beams and Frames," International Journal of Solids and Structures, Vol. 9,
+and Schmidt, Boston.                                                               No. 7, pp. 829-842.
+
+
+
+
+Journal of Mechanical Design                                                                                            MARCH 1995, Vol. 117/165
+

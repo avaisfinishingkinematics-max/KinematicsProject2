@@ -1,0 +1,115 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\title{Pseudo-Rigid-Body Derivation for Side-Crank Compliant Mechanism}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This document provides a detailed derivation of the Pseudo-Rigid-Body (PRB) model for a side-crank compliant mechanism with a flexible coupler. The flexible coupler is modeled using large deflection beam theory with parametric approximations from Howell and Midha.
+
+\section{Large Deflection Beam Theory}
+
+The Bernoulli-Euler beam equation for large deflections is:
+
+\[ M = EI \frac{d\theta}{ds} = EI \frac{\left(\frac{d^2y}{dx^2}\right)}{\left[1 + \left(\frac{dy}{dx}\right)^2\right]^{3/2}} \]
+
+where $M$ is the bending moment, $EI$ is the flexural rigidity, $\theta$ is the angular deflection, $s$ is the arc length, $y$ is the transverse deflection, and $x$ is the coordinate along the undeflected axis.
+
+\section{Parametric Approximation}
+
+The deflection path is parameterized using the pseudo-rigid-body angle $\Theta$:
+
+\[ x(\Theta) = L \left[1 - \frac{2K_b}{\pi}\sin\left(\frac{\Theta}{2}\right)\right]\cos(\Theta) \]
+
+\[ y(\Theta) = L \left[1 - \frac{2K_b}{\pi}\sin\left(\frac{\Theta}{2}\right)\right]\sin(\Theta) \]
+
+where $K_b \approx 0.85$.
+
+\section{PRB Model Construction}
+
+The flexible coupler is replaced by two rigid links connected by a torsional spring.
+
+Characteristic length ratio: $\lambda = \frac{2K_b}{\pi} \approx 0.541$
+
+Link lengths: $L_1 = L_2 = L \sin\left(\frac{\Theta}{2}\right)$
+
+\section{Characteristic Spring Stiffness}
+
+The torsional spring constant is:
+
+\[ K_\theta = 12.7 \frac{EI}{L} \]
+
+For the coupler: $K_\theta^{coupler} = 2 \times 12.7 \frac{EI}{L}$
+
+\section{Side-Crank Configuration}
+
+The mechanism consists of a drive crank, flexible coupler, and follower link.
+
+Kinematic relations involve the PRB angle $\Theta$.
+
+\section{Compliance Matrix}
+
+Lateral compliance: $C_{11} = \frac{L_c^3}{3EI}$
+
+Rotational compliance: $C_{22} = \frac{L_c}{EI}$
+
+Coupling term: $C_{12} = \frac{L_c^2}{2EI}$
+
+Effective stiffnesses: $K_y = \frac{3EI}{L_c^3}$, $K_\theta = \frac{EI}{L_c}$
+
+\section{Pseudo-Rigid-Body Angle Evaluation}
+
+Deflection: $y = L_c (1 - \cos\Theta)$
+
+\section{Practical Calculation Steps}
+
+1. Define parameters: $L_c$, $I$, $E$, $\delta_{max}$
+
+2. Calculate normalized load: $\Lambda = \frac{FL_c^2}{EI}$
+
+3. Determine PRB parameters: $L_{PRB} = L_c \sin\left(\frac{\Theta_{max}}{2}\right)$, $K_\theta = 12.7 \frac{EI}{L_c}$, $K_y = \frac{3EI}{L_c^3}$
+
+\section{Kinematic Equations}
+
+Closure constraints:
+
+\[ r_1 \cos\phi_1 + L_c \cos(\alpha - \Theta) + r_3 \cos\phi_3 = d \]
+
+\[ r_1 \sin\phi_1 + L_c \sin(\alpha - \Theta) + r_3 \sin\phi_3 = 0 \]
+
+Force balance: $M_{crank} - K_\theta \Theta - M_{follower} = I_{coupler} \ddot{\Theta}$
+
+\section{Design Equations Summary}
+
+Lateral Stiffness: $K_y = \dfrac{3EI}{L_c^3}$
+
+Rotational Stiffness: $K_\theta = 12.7 \dfrac{EI}{L_c}$
+
+Characteristic Angle: $\Theta_{max} = 2\sin^{-1}\left(\dfrac{\pi \Lambda}{2(K_b+1)}\right)$ where $\Lambda = \dfrac{FL_c^2}{EI}$
+
+PRB Link Length: $L_{PRB} = L_c \sin\left(\dfrac{\Theta}{2}\right)$
+
+Coupler Compliance: $C_{11} = \dfrac{L_c^3}{3EI}$
+
+End Deflection: $y = L_c\left(1 - \cos\Theta\right)$
+
+\section{Assumptions and Limitations}
+
+- Linear elastic material
+- Deflections up to 120°
+- Uniform cross-section
+- Negligible shear deformation
+- Quasi-static loading
+
+Accuracy: ±0.5% vs. exact elliptic integral solution.
+
+\end{document}
+
+\end{document}</content>
+<parameter name="filePath">c:\Users\bav12\OneDrive - The Ohio State University\classes\MECHENG 7751 Advanced Kinematics and Mechanics\project 2\PRB Model\prb_derivation.tex

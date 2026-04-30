@@ -1,0 +1,17 @@
+const fs = require('fs');
+const code = fs.readFileSync('script.js','utf8');
+const safeCode = code.replace(/window\.onload\s*=\s*function\(\)\s*\{[\s\S]*?updatePlots\(\);[\s\S]*?\};/m, '');
+const globalObj = { window: {}, document: {} };
+const vm = require('vm');
+vm.createContext(globalObj);
+vm.runInContext(safeCode, globalObj);
+const params = { r1: 3.5, Lc: 5, offset: 0.5, gamma: 0.85, EI: 16 };
+const baselineParams = { r1: 3, Lc: 5, offset: 0.5, gamma: 0.8517, EI: 16 };
+const current = globalObj.computePRBModel(params, 0, 2 * Math.PI);
+const baseline = globalObj.computePRBModel(baselineParams, 0, 2 * Math.PI);
+console.log('current sample', current.prbDisp.slice(0, 5));
+console.log('baseline sample', baseline.prbDisp.slice(0, 5));
+console.log('current min max', Math.min(...current.prbDisp), Math.max(...current.prbDisp));
+console.log('baseline min max', Math.min(...baseline.prbDisp), Math.max(...baseline.prbDisp));
+console.log('current first 5 angles', current.prbAngleRad.slice(0, 5));
+console.log('baseline first 5 angles', baseline.prbAngleRad.slice(0, 5));

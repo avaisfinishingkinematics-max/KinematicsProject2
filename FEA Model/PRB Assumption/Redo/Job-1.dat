@@ -1,0 +1,227 @@
+1
+
+   Abaqus Learning Edition 2025                                  Date 29-Apr-2026   Time 15:15:51
+   
+
+
+
+     PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   *******************************************************
+
+
+     END PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   ***********************************************************
+
+
+
+
+     OPTIONS BEING PROCESSED
+   ***************************
+
+
+  *heading
+  *connectorsection, elset=ASSEMBLY_WIRE-1-SET-3, behavior=CONNSECT-9
+  *connectorbehavior, name=CONNSECT-9
+  *connectorelasticity, component=6
+  *rigidbody, refnode=ASSEMBLY_COUPLER-1_COUPLER-REFPT_, elset=ASSEMBLY_COUPLER
+  *rigidbody, refnode=ASSEMBLY_CRANK-1_CRANK-1-REFPT_, elset=ASSEMBLY_CRANK-1_C
+  *tie, name=ASSEMBLY_RPBCOUPLER, adjust=YES
+  *rigidbody, refnode=ASSEMBLY_COUPLER-1_COUPLER-REFPT_, elset=ASSEMBLY_COUPLER
+  *rigidbody, refnode=ASSEMBLY_CRANK-1_CRANK-1-REFPT_, elset=ASSEMBLY_CRANK-1_C
+  *rigidbody, refnode=ASSEMBLY_COUPLER-1_COUPLER-REFPT_, elset=ASSEMBLY_COUPLER
+  *rigidbody, refnode=ASSEMBLY_CRANK-1_CRANK-1-REFPT_, elset=ASSEMBLY_CRANK-1_C
+  *rigidbody, refnode=ASSEMBLY_COUPLER-1_COUPLER-REFPT_, elset=ASSEMBLY_COUPLER
+  *rigidbody, refnode=ASSEMBLY_CRANK-1_CRANK-1-REFPT_, elset=ASSEMBLY_CRANK-1_C
+  *tie, name=ASSEMBLY_RPBCOUPLER, adjust=YES
+  *surface, type=NODE, name=ASSEMBLY_COUPLER-1_COUPLERA_CNS_
+  *surface, type=NODE, name=ASSEMBLY_CRANK-1_CRANKA_CNS_
+  *surface, type=NODE, name=ASSEMBLY_CRANK-1_CRANKO_CNS_
+  *surface, type=NODE, name=ASSEMBLY_COUPLER-1_SLIDERB_CNS_
+  *surface, type=NODE, name=ASSEMBLY_RP3_CNS_
+  *surface, type=NODE, name=ASSEMBLY_COUPLER-1_COUPLERA_CNS_
+  *surface, type=NODE, name=ASSEMBLY_CRANK-1_CRANKA_CNS_
+  *surface, type=NODE, name=ASSEMBLY_CRANK-1_CRANKO_CNS_
+  *surface, type=NODE, name=ASSEMBLY_COUPLER-1_SLIDERB_CNS_
+  *surface, type=NODE, name=ASSEMBLY_RP3_CNS_
+  *tie, name=ASSEMBLY_RPBCOUPLER, adjust=YES
+  *rigidbody, refnode=ASSEMBLY_COUPLER-1_COUPLER-REFPT_, elset=ASSEMBLY_COUPLER
+  *rigidbody, refnode=ASSEMBLY_CRANK-1_CRANK-1-REFPT_, elset=ASSEMBLY_CRANK-1_C
+  *coupling, constraintname=ASSEMBLY_RP1, refnode=ASSEMBLY_RP1, surface=ASSEMBL
+  *coupling, constraintname=ASSEMBLY_RP2, refnode=ASSEMBLY_RP2, surface=ASSEMBL
+  *coupling, constraintname=ASSEMBLY_RP4, refnode=ASSEMBLY_DRIVER, surface=ASSE
+  *tie, name=ASSEMBLY_RPBCOUPLER, adjust=YES
+  *coupling, constraintname=ASSEMBLY_RP1, refnode=ASSEMBLY_RP1, surface=ASSEMBL
+  *coupling, constraintname=ASSEMBLY_RP2, refnode=ASSEMBLY_RP2, surface=ASSEMBL
+  *coupling, constraintname=ASSEMBLY_RP4, refnode=ASSEMBLY_DRIVER, surface=ASSE
+  *coupling, constraintname=ASSEMBLY_RP1, refnode=ASSEMBLY_RP1, surface=ASSEMBL
+  *kinematic
+
+ ***NOTE: WHENEVER A TRANSLATION (ROTATION) DOF AT A NODE IS CONSTRAINED BY A 
+          KINEMATIC COUPLING DEFINITION THE TRANSLATION (ROTATION) DOFS FOR 
+          THAT NODE CANNOT BE INCLUDED IN ANY OTHER CONSTRAINT INCLUDING MPCS, 
+          RIGID BODIES, ETC.
+  *coupling, constraintname=ASSEMBLY_RP2, refnode=ASSEMBLY_RP2, surface=ASSEMBL
+  *kinematic
+  *coupling, constraintname=ASSEMBLY_RP4, refnode=ASSEMBLY_DRIVER, surface=ASSE
+  *kinematic
+  *coupling, constraintname=ASSEMBLY_RP1, refnode=ASSEMBLY_RP1, surface=ASSEMBL
+  *coupling, constraintname=ASSEMBLY_RP2, refnode=ASSEMBLY_RP2, surface=ASSEMBL
+  *coupling, constraintname=ASSEMBLY_RP4, refnode=ASSEMBLY_DRIVER, surface=ASSE
+  *coupling, constraintname=ASSEMBLY_RP1, refnode=ASSEMBLY_RP1, surface=ASSEMBL
+  *coupling, constraintname=ASSEMBLY_RP2, refnode=ASSEMBLY_RP2, surface=ASSEMBL
+  *coupling, constraintname=ASSEMBLY_RP4, refnode=ASSEMBLY_DRIVER, surface=ASSE
+  *connectorsection, elset=ASSEMBLY_WIRE-1-SET-3, behavior=CONNSECT-9
+  *rigidbody, refnode=ASSEMBLY_COUPLER-1_COUPLER-REFPT_, elset=ASSEMBLY_COUPLER
+  *rigidbody, refnode=ASSEMBLY_CRANK-1_CRANK-1-REFPT_, elset=ASSEMBLY_CRANK-1_C
+  *rigidbody, refnode=ASSEMBLY_COUPLER-1_COUPLER-REFPT_, elset=ASSEMBLY_COUPLER
+  *rigidbody, refnode=ASSEMBLY_CRANK-1_CRANK-1-REFPT_, elset=ASSEMBLY_CRANK-1_C
+  *boundary
+  *boundary
+  *boundary
+  *boundary
+  *boundary
+  *boundary
+  *tie, name=ASSEMBLY_RPBCOUPLER, adjust=YES
+
+ ***WARNING: SECONDARY SURFACE ASSEMBLY_RP3_CNS_ IS A NODE-BASED SURFACE USED 
+             WITH SURFACE TO SURFACE APPROACH.  IN ORDER TO OBTAIN IMPROVED 
+             STRESS ACCURACY WITH THIS APPROACH, AN ELEMENT-BASED SURFACE 
+             SHOULD BE USED INSTEAD.
+
+ ***WARNING: FOR *TIE PAIR (ASSEMBLY_RP3_CNS_-ASSEMBLY_COUPLER-1_SLIDERB_CNS_), 
+             ADJUSTMENT WAS SPECIFIED BUT NO NODE WAS ADJUSTED MORE THAN THE 
+             ADJUSTMENT DISTANCE = 2.22000E-16.
+  *tie, name=ASSEMBLY_RPBCOUPLER, adjust=YES
+  *tie, name=ASSEMBLY_RPBCOUPLER, adjust=YES
+
+ ***WARNING: SECONDARY NODE 3 (ASSEMBLY) WILL NOT BE TIED TO THE MAIN SURFACE 
+             ASSEMBLY_COUPLER-1_SLIDERB_CNS_. THE DISTANCE FROM THE MAIN 
+             SURFACE IS GREATER THAN THE POSITION TOLERANCE VALUE.
+
+ ***WARNING: OVERCONSTRAINT CHECKS: THE *COUPLING|*KINEMATIC CONSTRAINT BETWEEN 
+             NODES 1 (ASSEMBLY) AND 1 INSTANCE COUPLER-1 CONFLICTS WITH THE 
+             CONSTRAINTS DUE TO THE RIGID BODY WITH REFERENCE NODE 36 INSTANCE 
+             COUPLER-1. THE *KINEMATIC COUPLING CONSTRAINT BETWEEN THESE TWO 
+             NODES IS REMOVED. CHECK IF THIS IS ACCEPTABLE.
+
+ ***WARNING: OVERCONSTRAINT CHECKS: THE *COUPLING|*KINEMATIC CONSTRAINT BETWEEN 
+             NODES 2 (ASSEMBLY) AND 25 INSTANCE CRANK-1 CONFLICTS WITH THE 
+             CONSTRAINTS DUE TO THE RIGID BODY WITH REFERENCE NODE 26 INSTANCE 
+             CRANK-1. THE *KINEMATIC COUPLING CONSTRAINT BETWEEN THESE TWO 
+             NODES IS REMOVED. CHECK IF THIS IS ACCEPTABLE.
+
+ ***WARNING: OVERCONSTRAINT CHECKS: THE *COUPLING|*KINEMATIC CONSTRAINT BETWEEN 
+             NODES 4 (ASSEMBLY) AND 1 INSTANCE CRANK-1 CONFLICTS WITH THE 
+             CONSTRAINTS DUE TO THE RIGID BODY WITH REFERENCE NODE 26 INSTANCE 
+             CRANK-1. THE *KINEMATIC COUPLING CONSTRAINT BETWEEN THESE TWO 
+             NODES IS REMOVED. CHECK IF THIS IS ACCEPTABLE.
+  *rigidbody, refnode=ASSEMBLY_COUPLER-1_COUPLER-REFPT_, elset=ASSEMBLY_COUPLER
+  *rigidbody, refnode=ASSEMBLY_CRANK-1_CRANK-1-REFPT_, elset=ASSEMBLY_CRANK-1_C
+  *surface, type=NODE, name=ASSEMBLY_COUPLER-1_COUPLERA_CNS_
+  *surface, type=NODE, name=ASSEMBLY_CRANK-1_CRANKA_CNS_
+  *surface, type=NODE, name=ASSEMBLY_CRANK-1_CRANKO_CNS_
+  *surface, type=NODE, name=ASSEMBLY_COUPLER-1_SLIDERB_CNS_
+  *surface, type=NODE, name=ASSEMBLY_RP3_CNS_
+  *tie, name=ASSEMBLY_RPBCOUPLER, adjust=YES
+  *connectorsection, elset=ASSEMBLY_WIRE-1-SET-3, behavior=CONNSECT-9
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+
+ ***WARNING: 1 nodes are either missing intersection with their respective main 
+             surface or are outside the adjust zone. The nodes have been 
+             identified in node set WarnNodeMissMainIntersect.
+
+ ***WARNING: One or more kinematic COUPLING constraint(s) have all or some of 
+             the nodes associated with each constraint belonging to rigid 
+             bodies. The COUPLING constraint(s) will not be applied at the 
+             nodes that belong to the rigid bodies. The nodes for which the 
+             COUPLING constraint(s) will not be enforced have been identified 
+             in node set WarnNodeOverconKCInRbd.
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *step, name=Step-1, nlgeom=YES, inc=1000
+  *step, name=Step-1, nlgeom=YES, inc=1000
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *step, name=Step-1, nlgeom=YES, inc=1000
+
+ ***WARNING: NODE SET ASSEMBLY_DRIVER HAS NO MEMBERS AND WILL BE IGNORED.  
+             NODES DEFINED IN THIS SET MAY HAVE BEEN DELETED BECAUSE THEY WERE 
+             NOT CONNECTED TO ANY ELEMENTS.
+  *step, name=Step-1, nlgeom=YES, inc=1000
+  *static
+  *boundary
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *boundary
+  *boundary
+
+ ***ERROR: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET ASSEMBLY_DRIVER 
+           BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+ ***NOTE: DUE TO AN INPUT ERROR THE ANALYSIS PRE-PROCESSOR HAS BEEN UNABLE TO 
+          INTERPRET SOME DATA.  SUBSEQUENT ERRORS MAY BE CAUSED BY THIS OMISSION
+
+ ***ERROR: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET ASSEMBLY_DRIVER 
+           BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+  *step, name=Step-1, nlgeom=YES, inc=1000
+  *static
+  *boundary
+
+ ***ERROR: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET ASSEMBLY_DRIVER 
+           BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+  *endstep
+
+ ***ERROR: NODE SET ASSEMBLY_DRIVER HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_DRIVER HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_DRIVER HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_DRIVER HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_DRIVER HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_DRIVER HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_DRIVER HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_DRIVER HAS NOT BEEN DEFINED
+
+ ***ERROR: NODE SET ASSEMBLY_DRIVER HAS NOT BEEN DEFINED
+
+
+
+                            P R O B L E M   S I Z E
+
+
+          NUMBER OF ELEMENTS IS                                    62
+          NUMBER OF ELEMENTS DEFINED BY THE USER AND *TIE          59
+          NUMBER OF NODES IS                                       69
+          NUMBER OF NODES DEFINED BY THE USER                      65
+          NUMBER OF INTERNAL NODES GENERATED BY THE PROGRAM         4
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                  138
+          (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
+           VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
+
+
+
+
+
+          THE PROGRAM HAS DISCOVERED    12 FATAL ERRORS
+
+               ** EXECUTION IS TERMINATED **
+
+
+
+                              END OF USER INPUT PROCESSING
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =      0.0    
+       SYSTEM TIME (SEC)    =     0.10    
+       TOTAL CPU TIME (SEC) =     0.10    
+       WALLCLOCK TIME (SEC) =            0

@@ -1,0 +1,28 @@
+========================================================
+FEA vs PRB ANALYTICAL MODEL COMPARISON
+Howell & Midha (1995) Parametric Deflection Approximation
+========================================================
+
+BEAM PROPERTIES:
+  Length L = 200.0 mm
+  Width × Thickness = 350.0 × 2.0 mm
+  Material: Polypropylene
+  E = 1.84e+09 Pa (1.84 GPa)
+  ν = 0.46
+  I = 6.666667e-12 m⁴
+  EI = 1.226667e-02 N·m²
+
+COMPARISON RESULTS:
+================================================================
+Case     | n  | FEA a(mm) | PRB a(mm) | FEA b(mm) | PRB b(mm) | Error%
+================================================================
+ n = 0.5 | 0.5 |     -0.92 |     -0.94 |     17.47 |     17.71 |   1.35
+ n = 1.0 | 1.0 |     -1.03 |     -1.04 |     18.44 |     18.61 |   0.89
+ n = 2.0 | 2.0 |     -1.28 |     -1.29 |     20.58 |     20.64 |   0.28
+
+SUMMARY:
+  Mean deflection error: 0.8393%
+  Max deflection error:  1.3453%
+  Min deflection error:  0.2825%
+
+RESULT: ✓ GOOD AGREEMENT - Model predictions are within acceptable tolerance
