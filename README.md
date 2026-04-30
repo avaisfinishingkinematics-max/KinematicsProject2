@@ -4,11 +4,10 @@ This repository contains the complete work for MECHENG 7751 Project 2, including
 
 ## Key files and locations
 
-- **Derivation**: `PRB Model/My_PRB_derivation.tex`
-- **Final report**: `final report/ME7751_Project2_Report.tex`
-- **Presentation**: `final report/ME7751_Project2_Presentation.pptx`
-- **Final FEA model**: `FEA Model/Compliant Beam/MechanismTake3.cae`
-- **Alternate FEA model / root file**: `RedoMechanism.cae`
+- **Derivation**: `PRB Model/My_PRB_derivation.pdf`
+- **Final report**: `final report/ME7751_Project2_Report.pdf`
+- **Presentation**: `final report/Compliant_Mechanism_Validation_Presentation_FINAL.pptx`
+- **Final FEA model**: `FEA Model/RedoMechanism.cae`
 - **MATLAB analysis**: `MATLAB/QUICKSTART.m`, `MATLAB/run_comparison.m`, `MATLAB/main_analysis.m`
 - **Interactive web app**: `App/index.html`, `App/script.js`, `App/chart.min.js`
 - **GitHub Pages web app copy**: `docs/`
