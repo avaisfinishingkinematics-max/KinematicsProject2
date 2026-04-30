@@ -34,9 +34,10 @@ The compliant mechanism is a slider-crank system where the coupler is a flexible
 
 To host this app on GitHub Pages:
 
-1. Commit the `App` folder contents to your GitHub repository.
-2. Enable GitHub Pages in the repository settings, selecting the main branch and `/App` as the source folder.
-3. The app will be accessible at `https://<username>.github.io/<repo>/App/`
+1. Commit the repo contents to your GitHub repository.
+2. Copy the files from `App/` into the `docs/` folder.
+3. Enable GitHub Pages in the repository settings, selecting the main branch and `/docs` as the source folder.
+4. The app will be accessible at `https://<username>.github.io/<repo>/`
 
 ## Notes
 
