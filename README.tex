@@ -1,0 +1,98 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{courier}
+\usepackage[T1]{fontenc}
+\renewcommand{\familydefault}{\sfdefault}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries Project 2 — Compliant Mechanism PRB and FEA}\\[1em]
+\end{center}
+
+This repository contains the complete work for MECHENG 7751 Project 2, including analytical derivations, FEA validation, the final report, and an interactive web app.
+
+\section*{Key files and locations}
+\begin{itemize}[leftmargin=*, itemsep=0.5em]
+  \item \textbf{Derivation}: \texttt{PRB Model/My\_PRB\_derivation.tex}
+  \item \textbf{Final report}: \texttt{final report/ME7751\_Project2\_Report.tex}
+  \item \textbf{Presentation}: \texttt{final report/ME7751\_Project2\_Presentation.pptx}
+  \item \textbf{Final FEA model}: \texttt{FEA Model/Compliant Beam/MechanismTake3.cae}
+  \item \textbf{Alternate FEA model / root file}: \texttt{RedoMechanism.cae}
+  \item \textbf{MATLAB analysis}: \texttt{MATLAB/QUICKSTART.m}, \texttt{MATLAB/run\_comparison.m}, \texttt{MATLAB/main\_analysis.m}
+  \item \textbf{Interactive web app}: \texttt{App/index.html}, \texttt{App/script.js}, \texttt{App/chart.min.js}
+  \item \textbf{GitHub Pages web app copy}: \texttt{docs/}
+\end{itemize}
+
+\section*{Running the MATLAB analysis}
+\begin{enumerate}[leftmargin=*, itemsep=0.5em]
+  \item Open MATLAB.
+  \item Set the current folder to: \texttt{project 2/MATLAB}
+  \item Run the comparison script:
+    \begin{verbatim}
+run_comparison
+    \end{verbatim}
+\end{enumerate}
+
+This will:
+\begin{itemize}[leftmargin=*, itemsep=0.5em]
+  \item load FEA data,
+  \item compute PRB analytical predictions,
+  \item generate comparison plots,
+  \item save results into \texttt{MATLAB/results/}.
+\end{itemize}
+
+If needed, the full quick-start instructions are in \texttt{MATLAB/QUICKSTART.m}.
+
+\section*{Running the interactive web app locally}
+\subsection*{Option 1: Open directly}
+\begin{enumerate}[leftmargin=*, itemsep=0.5em]
+  \item Open \texttt{App/index.html} in any modern browser.
+  \item The app runs entirely in the browser using JavaScript and Chart.js.
+\end{enumerate}
+
+\subsection*{Option 2: Run a local server}
+If you want a local server view (recommended for some browsers):
+\begin{enumerate}[leftmargin=*, itemsep=0.5em]
+  \item Install Node.js if not already installed.
+  \item From the project root, run:
+    \begin{verbatim}
+cd "project 2\\App"
+node server.js
+    \end{verbatim}
+  \item Open \texttt{http://localhost:8000} in your browser.
+\end{enumerate}
+
+\section*{Hosting the web app on GitHub Pages}
+This project includes a GitHub Pages site copy in the \texttt{docs/} folder. To host the app publicly:
+\begin{enumerate}[leftmargin=*, itemsep=0.5em]
+  \item Create a GitHub repository for this project.
+  \item Add a remote to your local repo, for example:
+    \begin{verbatim}
+git remote add origin https://github.com/<username>/<repo>.git
+    \end{verbatim}
+  \item Push the local repository:
+    \begin{verbatim}
+git push -u origin main
+    \end{verbatim}
+  \item In GitHub repository settings, enable Pages and select:
+    \begin{itemize}[leftmargin=*, itemsep=0.5em]
+      \item Source branch: \texttt{main}
+      \item Folder: \texttt{/docs}
+    \end{itemize}
+  \item The hosted web app will be available at:
+    \begin{verbatim}
+https://<username>.github.io/<repo>/
+    \end{verbatim}
+\end{enumerate}
+
+The app files are copied into \texttt{docs/} so GitHub Pages can serve them directly.
+
+\section*{Notes}
+\begin{itemize}[leftmargin=*, itemsep=0.5em]
+  \item \texttt{App/} contains the original interactive web app.
+  \item \texttt{docs/} contains the GitHub Pages deployment copy.
+  \item The final report and presentation are located in \texttt{final report/}.
+  \item The final FEA model is stored in \texttt{FEA Model/Compliant Beam/MechanismTake3.cae}.
+\end{itemize}
+\end{document}
